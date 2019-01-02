@@ -1,0 +1,3 @@
+[submodule "census-data/census-tools-haskell"]
+	path = census-data/census-tools-haskell
+	url = https://github.com/adamConnerSax/census-tools
