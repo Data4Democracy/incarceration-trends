@@ -1,3 +1,8 @@
+**This is a stub for a more fleshed out README**
+
+The focus of this sub-project is general incarceration trends in the US
+
+
 Some preliminary thoughts on definitions and terminology. Please add to and discuss.
 
 **Using Vera Columns**
