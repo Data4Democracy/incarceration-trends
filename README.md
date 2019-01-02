@@ -3,7 +3,7 @@
 The #incarceration-trends channel of Data for Democracy is working with the Colorado ACLU to analyze and visualize data on bail in Colorado to inform proposed legislation in the upcoming state house legislative session. We are also exploring the recently released Incarceration Trends data set for future analysis.
 
 ## Projects
- 
+
 ### 1) Visualization of recent ACLU jail snapshot
 
 ### 2) Analysis comparing jail population trends with crime trends, with state population
