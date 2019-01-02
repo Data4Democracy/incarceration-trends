@@ -2,15 +2,15 @@
 # Incarceration Trends Project
 The #incarceration-trends channel of Data for Democracy is working with the Colorado ACLU to analyze and visualize data on bail in Colorado to inform proposed legislation in the upcoming state house legislative session. We are also exploring the recently released Incarceration Trends data set for future analysis.
 
-# Projects
+## Projects
 
-## 1) Visualization of recent ACLU jail snapshot
+### 1) Visualization of recent ACLU jail snapshot
 
-## 2) Analysis comparing jail population trends with crime trends, with state population
+### 2) Analysis comparing jail population trends with crime trends, with state population
 
-## 3) Interactive visualization of jail snapshot
+### 3) Interactive visualization of jail snapshot
 
-## 4) Analysis of money bail
+### 4) Analysis of money bail
 
 Project code in [4-money-bail-analysis](https://github.com/data4democracy/incarceration-trends/tree/master/4-money-bail-analysis).
 
@@ -42,7 +42,10 @@ Data in [4-money-bail-analysis/repweissman-data](https://github.com/data4democra
 
 
 
-# Ethics
+## Ethics
+
+#### FORTS Statement
+
 *Fairness* - We acknowledge the perspectives and biases we bring to the analysis and understand that no data analysis exists in a vacuum independent from the social and political context in which it was created and shared.
 
 *Openness* - We will make every effort to make all data open and all analysis as transparent and clear as possible. All project work will be publicly available on GitHub with a clear and descriptive README.
@@ -53,6 +56,7 @@ Data in [4-money-bail-analysis/repweissman-data](https://github.com/data4democra
 
 *Social Benefit* - We hope this project will inform criminal justice reform policy in the state of Colorado and beyond and will shed light on criminal justice practices which harm marginalized members of our communities.
 
+#### Ethical Principles
 
 1. *Consider (if not collect) informed and purposeful consent of data subjects for all projects, and discard resulting data when that consent expires.*
 
