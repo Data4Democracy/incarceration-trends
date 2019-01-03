@@ -3,19 +3,27 @@ The #incarceration-trends channel of Data for Democracy is working with the Colo
 
 ## Projects
 
-### 1) Visualization of recent ACLU jail snapshot
+### ACLU Project
 
-### 2) Analysis comparing jail population trends with crime trends, with state population
+#### 1) Visualization of recent ACLU jail snapshot
 
-### 3) Interactive visualization of jail snapshot
+#### 2) Analysis comparing jail population trends with crime trends, with state population
 
-### 4) Analysis of money bail
+**Datasets & Sources:**
+  * Colorado Population Estimates, from [the Colorado State Demography Office](https://demography.dola.colorado.gov/population/)
+  * Colorado Crime Rates, including violent, property, and drug crime from [Colorado Crime Stats](https://coloradocrimestats.state.co.us/tops/)
+
+#### 3) Interactive visualization of jail snapshot
+
+#### 4) Analysis of money bail
 
 Project code in [4-money-bail-analysis](https://github.com/data4democracy/incarceration-trends/tree/master/4-money-bail-analysis).
 
 Data in [4-money-bail-analysis/repweissman-data](https://github.com/data4democracy/incarceration-trends/tree/master/4-money-bail-analysis/repweissman-data).
 
 **Data source:** Received from the Colorado ACLU. Prepared by DCJ/ORS for Representative Michael Weissman, May 2018. Court records were extracted from Judicial Branch’s Integrated Colorado Online Network (ICON) information management system via the Colorado Justice Analytics Support System (CJASS) and analyzed by DCJ/ORS. *Denver County court data were not available for misdemeanor/traffic offenses. 
+
+**Datasets:**
 
   * Table 1. Felony Cases Bond Set Type by District, CY14-16
   
