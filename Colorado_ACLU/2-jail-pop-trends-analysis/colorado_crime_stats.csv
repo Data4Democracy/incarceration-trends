@@ -1,0 +1,131 @@
+year,offense,total,n_cleared,percent_cleared,class
+2017,Violent Crime,23210,11258,48.5,Violent
+2017,Murder,216,155,71.76,Violent
+2017,Aggravated Assault,12742,7627,59.86,Violent
+2017,Non-consensual Sex Offens...,6420,2247,35,Violent
+2017,Robbery,3832,1229,32.07,Violent
+2016,Violent Crime,21551,10291,47.75,Violent
+2016,Murder,189,135,71.43,Violent
+2016,Aggravated Assault,11793,7057,59.84,Violent
+2016,Non-consensual Sex Offens...,6014,2050,34.09,Violent
+2016,Robbery,3555,1049,29.51,Violent
+2015,Violent Crime,19909,9523,47.83,Violent
+2015,Murder,173,118,68.21,Violent
+2015,Aggravated Assault,10613,6384,60.15,Violent
+2015,Non-consensual Sex Offens...,5795,2e3,34.51,Violent
+2015,Robbery,3328,1021,30.68,Violent
+2014,Violent Crime,18781,9241,49.2,Violent
+2014,Murder,151,101,66.89,Violent
+2014,Aggravated Assault,10145,6292,62.02,Violent
+2014,Non-consensual Sex Offens...,5451,1953,35.83,Violent
+2014,Robbery,3034,895,29.5,Violent
+2013,Violent Crime,18436,9361,50.78,Violent
+2013,Murder,175,123,70.29,Violent
+2013,Aggravated Assault,9715,6200,63.82,Violent
+2013,Non-consensual Sex Offens...,5394,2090,38.75,Violent
+2013,Robbery,3152,948,30.08,Violent
+2012,Violent Crime,19223,9523,49.54,Violent
+2012,Murder,162,118,72.84,Violent
+2012,Aggravated Assault,10180,6296,61.85,Violent
+2012,Non-consensual Sex Offens...,5526,2171,39.29,Violent
+2012,Robbery,3355,938,27.96,Violent
+2011,Violent Crime,17332,8987,51.85,Violent
+2011,Murder,138,107,77.54,Violent
+2011,Aggravated Assault,9131,5805,63.57,Violent
+2011,Non-consensual Sex Offens...,4867,2083,42.8,Violent
+2011,Robbery,3196,992,31.04,Violent
+2010,Violent Crime,17411,9559,54.9,Violent
+2010,Murder,91,61,67.03,Violent
+2010,Aggravated Assault,9706,6340,65.32,Violent
+2010,Non-consensual Sex Offens...,4665,2235,47.91,Violent
+2010,Robbery,2949,923,31.3,Violent
+2009,Violent Crime,17590,9839,55.94,Violent
+2009,Murder,126,102,80.95,Violent
+2009,Aggravated Assault,9785,6481,66.23,Violent
+2009,Non-consensual Sex Offens...,4625,2251,48.67,Violent
+2009,Robbery,3054,1005,32.91,Violent
+2008,Violent Crime,17724,9762,55.08,Violent
+2008,Murder,136,108,79.41,Violent
+2008,Aggravated Assault,10094,6622,65.6,Violent
+2008,Non-consensual Sex Offens...,4454,2185,49.06,Violent
+2008,Robbery,3040,847,27.86,Violent
+2008,Robbery,3040,NA,NA,Property
+2008,Larceny,77951,NA,NA,Property
+2008,Burglary,22702,NA,NA,Property
+2008,Fraud,17248,NA,NA,Property
+2008,Motor Vehicle Theft,11797,NA,NA,Property
+2009,Robbery,3054,NA,NA,Property
+2009,Larceny,78014,NA,NA,Property
+2009,Burglary,21815,NA,NA,Property
+2009,Fraud,15755,NA,NA,Property
+2009,Motor Vehicle Theft,11218,NA,NA,Property
+2010,Robbery,2949,NA,NA,Property
+2010,Larceny,83126,NA,NA,Property
+2010,Burglary,22537,NA,NA,Property
+2010,Fraud,15734,NA,NA,Property
+2010,Motor Vehicle Theft,10346,NA,NA,Property
+2011,Robbery,3196,NA,NA,Property
+2011,Larceny,85521,NA,NA,Property
+2011,Burglary,22914,NA,NA,Property
+2011,Fraud,16963,NA,NA,Property
+2011,Motor Vehicle Theft,10521,NA,NA,Property
+2012,Robbery,3355,NA,NA,Property
+2012,Larceny,100333,NA,NA,Property
+2012,Burglary,25126,NA,NA,Property
+2012,Fraud,18101,NA,NA,Property
+2012,Motor Vehicle Theft,12221,NA,NA,Property
+2013,Robbery,3152,NA,NA,Property
+2013,Larceny,102835,NA,NA,Property
+2013,Burglary,24516,NA,NA,Property
+2013,Fraud,17187,NA,NA,Property
+2013,Motor Vehicle Theft,12806,NA,NA,Property
+2014,Robbery,3034,NA,NA,Property
+2014,Larceny,100161,NA,NA,Property
+2014,Burglary,22986,NA,NA,Property
+2014,Fraud,18792,NA,NA,Property
+2014,Motor Vehicle Theft,12894,NA,NA,Property
+2015,Robbery,3328,NA,NA,Property
+2015,Larceny,105192,NA,NA,Property
+2015,Burglary,23089,NA,NA,Property
+2015,Fraud,23370,NA,NA,Property
+2015,Motor Vehicle Theft,16406,NA,NA,Property
+2016,Robbery,3555,NA,NA,Property
+2016,Larceny,109931,NA,NA,Property
+2016,Burglary,23168,NA,NA,Property
+2016,Fraud,23798,NA,NA,Property
+2016,Motor Vehicle Theft,20006,NA,NA,Property
+2017,Robbery,3832,NA,NA,Property
+2017,Larceny,109323,NA,NA,Property
+2017,Burglary,22343,NA,NA,Property
+2017,Fraud,23679,NA,NA,Property
+2017,Motor Vehicle Theft,22204,NA,NA,Property
+2008,DUI,23649,NA,NA,Drug/DUI
+2009,DUI,23291,NA,NA,Drug/DUI
+2010,DUI,22615,NA,NA,Drug/DUI
+2011,DUI,21974,NA,NA,Drug/DUI
+2012,DUI,23298,NA,NA,Drug/DUI
+2013,DUI,24350,NA,NA,Drug/DUI
+2014,DUI,24746,NA,NA,Drug/DUI
+2015,DUI,23381,NA,NA,Drug/DUI
+2016,DUI,21971,NA,NA,Drug/DUI
+2017,DUI,21698,NA,NA,Drug/DUI
+2008,Drug/Narcotic Violations,17099,NA,NA,Drug/DUI
+2009,Drug/Narcotic Violations,16705,NA,NA,Drug/DUI
+2010,Drug/Narcotic Violations,16275,NA,NA,Drug/DUI
+2011,Drug/Narcotic Violations,16846,NA,NA,Drug/DUI
+2012,Drug/Narcotic Violations,19497,NA,NA,Drug/DUI
+2013,Drug/Narcotic Violations,13875,NA,NA,Drug/DUI
+2014,Drug/Narcotic Violations,15462,NA,NA,Drug/DUI
+2015,Drug/Narcotic Violations,17288,NA,NA,Drug/DUI
+2016,Drug/Narcotic Violations,19136,NA,NA,Drug/DUI
+2017,Drug/Narcotic Violations,21186,NA,NA,Drug/DUI
+2008,Drug Equipment Violations,10658,NA,NA,Drug/DUI
+2009,Drug Equipment Violations,10597,NA,NA,Drug/DUI
+2010,Drug Equipment Violations,10044,NA,NA,Drug/DUI
+2011,Drug Equipment Violations,11254,NA,NA,Drug/DUI
+2012,Drug Equipment Violations,13836,NA,NA,Drug/DUI
+2013,Drug Equipment Violations,8730,NA,NA,Drug/DUI
+2014,Drug Equipment Violations,9579,NA,NA,Drug/DUI
+2015,Drug Equipment Violations,10148,NA,NA,Drug/DUI
+2016,Drug Equipment Violations,11340,NA,NA,Drug/DUI
+2017,Drug Equipment Violations,12691,NA,NA,Drug/DUI
