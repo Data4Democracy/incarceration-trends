@@ -43,5 +43,14 @@ crime <- full_join(crime, drug, by=c("year","offense", "total","class"))
 # reorder variables
 crime <- select(year, class, offense, everything())
 
+# get rid of violent crime summary rows
+crime <- filter(crime, !offense=="Violent Crime")
+
 write_csv(crime, "colorado_crime_stats.csv")
 
+# ....................................................................................................
+
+pop <- read_csv("colorado_population_2008-2017.csv") %>% select(-X1)
+
+crime %>% group_by(year, class) %>% summarize(class_total=sum(total)) %>% left_join(pop, by="year") %>% 
+  ggplot(aes(x=year, y=class_total/pop_estimate, colour=class)) + geom_point() + geom_line()
