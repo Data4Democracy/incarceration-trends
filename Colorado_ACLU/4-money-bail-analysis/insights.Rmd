@@ -1,0 +1,54 @@
+---
+title: 'Colorado ACLU Project: Money Bail Analysis'
+author: "C. McClintock"
+date: "Winter 2019"
+output: 
+  html_document:
+    toc: true
+    toc_float: false
+    toc_collapsed: false
+    toc_depth: 3
+    theme: yeti
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
+load("moneybail.Rdata")
+library(tidyverse)
+library(knitr)
+```
+
+## Bond Set Types by County
+
+
+```{r tab-felony-money-2016}
+kable(head(arrange(select(filter(bondset, total_bond>50), county, year, crime_type, money_perc, total_bond), -year, crime_type, -money_perc), 10), col.names = c("County", "Year", "Offense Class", "Money Bonds as a % of All Bonds", "Total Bonds"), caption = "Counties With Highest Percentage Money Bond for Felony Offenses in 2016")
+```
+
+```{r tab-mis-money}
+kable(head(arrange(select(filter(bondset, total_bond>10), county, year, crime_type, money_perc, total_bond), -year, desc(crime_type), -money_perc), 10), col.names = c("County", "Year", "Offense Class", "Money Bonds as a % of All Bonds", "Total Bonds"), caption = "Counties With Highest Percentage Money Bond for Misdemeanor Offenses in 2016")
+```
+
+```{r}
+kable(head(arrange(filter(year.change), crime_type, bond_type, -diff), 10), col.names = c("County", "Offense Class", "Bond Type as a % of All Bonds", "2014", "2015", "2016", "2014-2016 Difference"), caption="Counties with the Largest Change in Money Bonds for Felony Offenses as a % of All Bonds for Felony Offenses between 2014 and 2016")
+```
+
+```{r}
+kable(head(arrange(filter(year.change), desc(crime_type), bond_type, -diff), 10), col.names = c("County", "Offense Class", "Bond Type as a % of All Bonds", "2014", "2015", "2016", "2014-2016 Difference"), caption="Counties with the Largest Change in Money Bonds for Misdemeanor Offenses as a % of All Bonds for Misdemeannor between 2014 nd 2016")
+
+```
+
+## New Filings by Bond Set Type by County
+
+
+## New Filing Offense Types
+
+```{r}
+kable(head(arrange(select(bond.new.off, firstofftype, mostseriousoffense, HB1236_impact), 
+             -abs(HB1236_impact)), 16), col.names = c("First Offense Class", "Most Serious Offense in New Fiing", "Percent Change Post HB13.1236"))
+```
+
+
+
+
+
