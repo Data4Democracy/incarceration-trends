@@ -60,8 +60,38 @@ bond.new.off <- mutate(bond.new.off,
                        firstofftype=as.factor(firstofftype),
                        HB1236_impact=perc_postHB1236-perc_preHB1236)
 
-head(arrange(select(bond.new.off, firstofftype, mostseriousoffense, HB1236_impact), 
-             -abs(HB1236_impact)), 16)
+head(arrange(select(filter(bond.new.off, firstofftype=="Felony"), firstofftype, 
+                    mostseriousoffense, HB1236_impact),  -abs(HB1236_impact)), 16)
+head(arrange(select(filter(bond.new.off, firstofftype=="Misdemeanor"), firstofftype, 
+                    mostseriousoffense, HB1236_impact),  -abs(HB1236_impact)), 16)
+
+# median impact of HB13.1236
+with(bond.new.off, median(abs(HB1236_impact)))
+with(filter(bond.new.off, firstofftype=="Felony"), median(abs(HB1236_impact)))
+with(filter(bond.new.off, firstofftype=="Misdemeanor"), median(abs(HB1236_impact)))
+# mean impact of HB13.1236
+with(bond.new.off, mean(abs(HB1236_impact)))
+with(filter(bond.new.off, firstofftype=="Felony"), mean(abs(HB1236_impact)))
+with(filter(bond.new.off, firstofftype=="Misdemeanor"), mean(abs(HB1236_impact)))
+
+mis <- filter(bond.new.off, firstofftype=="Misdemeanor") %>% select(mostseriousoffense, perc_postHB1236)
+names(mis) <- c("mostseriousoffense", "mis_perc")
+felony <- filter(bond.new.off, firstofftype=="Felony") %>% select(mostseriousoffense, perc_postHB1236) 
+names(felony) <- c("mostseriousoffense", "felony_perc")
+
+felony.mis.diff <- left_join(mis, felony, by="mostseriousoffense")
+felony.mis.diff <- mutate(felony.mis.diff, 
+                          diff=felony_perc-mis_perc, 
+                          morelikely=ifelse(diff<0, "Misdemeanor More Likely", "Felony More Likely"))
+
+g <- ggplot(filter(bond.new.off, !mostseriousoffense=="Total"&perc_postHB1236>0), 
+       aes(x=reorder(mostseriousoffense, perc_postHB1236), y=perc_postHB1236, fill=firstofftype)) + 
+  stat_summary(fun.y="sum", geom="bar", position="dodge") + coord_flip()
+
+
+g <- ggplot(filter(felony.mis.diff, abs(diff)>0), 
+            aes(x=reorder(mostseriousoffense, diff), y=diff, fill=morelikely)) + 
+  stat_summary(fun.y="sum", geom="bar", position="dodge") + coord_flip()
 
 # ....................................................................................................
 
