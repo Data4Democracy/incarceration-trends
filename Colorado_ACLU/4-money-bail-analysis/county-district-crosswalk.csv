@@ -1,1 +1,65 @@
-jud_district,county1,Gilpin1,Jefferson2,Denver3,Huerfano3,Las Animas4,El Paso4,Teller5,Clear Creek5,Eagle5,Lake5,Summit6,Archuleta6,La Plata6,San Juan7,Delta7,Gunnison7,Hinsdale 7,Montrose7,Ouray7,San Miguel8,Jackson8,Larimer9,Garfield9,Pitkin9,Rio Blanco10,Pueblo11,Chaffee11,Custer11,Fremont11,Park12,Alamosa12,Conejos12,Costilla12,Mineral12,Rio Grande12,Saguache13,Kit Carson13,Logan13,Morgan 13,Phillips13,Sedgwick13,Washington13,Yuma14,Grand14,Moffat14,Routt15,Baca15,Cheyenne15,Kiowa15,Prowers16,Bent16,Crowley16,Otero17,Adams17,Broomfield18,Arapahoe18,Douglas18,Elbert18,Lincoln19,Weld20,Boulder21,Mesa22,Dolores22,Montezuma
+jud_district,county
+1,Gilpin
+1,Jefferson
+2,Denver
+3,Huerfano
+3,Las Animas
+4,El Paso
+4,Teller
+5,Clear Creek
+5,Eagle
+5,Lake
+5,Summit
+6,Archuleta
+6,La Plata
+6,San Juan
+7,Delta
+7,Gunnison
+7,Hinsdale 
+7,Montrose
+7,Ouray
+7,San Miguel
+8,Jackson
+8,Larimer
+9,Garfield
+9,Pitkin
+9,Rio Blanco
+10,Pueblo
+11,Chaffee
+11,Custer
+11,Fremont
+11,Park
+12,Alamosa
+12,Conejos
+12,Costilla
+12,Mineral
+12,Rio Grande
+12,Saguache
+13,Kit Carson
+13,Logan
+13,Morgan 
+13,Phillips
+13,Sedgwick
+13,Washington
+13,Yuma
+14,Grand
+14,Moffat
+14,Routt
+15,Baca
+15,Cheyenne
+15,Kiowa
+15,Prowers
+16,Bent
+16,Crowley
+16,Otero
+17,Adams
+17,Broomfield
+18,Arapahoe
+18,Douglas
+18,Elbert
+18,Lincoln
+19,Weld
+20,Boulder
+21,Mesa
+22,Dolores
+22,Montezuma
