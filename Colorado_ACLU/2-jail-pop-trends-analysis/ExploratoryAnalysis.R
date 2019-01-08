@@ -75,6 +75,10 @@ View(co_jail_pop_by_year)
 View(incarceration)
 names(incarceration) <- c("year", "jail_pop" )
 
+incarc.pop.compare <- incarceration %>% 
+  inner_join(population, by = "year")
+View(incarc.pop.compare)
+
   # They are equal. perfect, i can use the incarceration file instead
 
 incarceration.perc.co <- incarceration %>% 
@@ -83,11 +87,35 @@ incarceration.perc.co <- incarceration %>%
     select(year, jail.perc)
 View(incarceration.perc.co)
 
+incarc.rate.vis <- ggplot(incarceration.perc.co, aes(x= year, y = jail.perc)) +
+  geom_line() + 
+  geom_point()+
+  ggtitle('CO Incarceration Rate Over Time') +
+  theme(
+    plot.title = element_text(size=15, face="bold", family = "serif", hjust = 0.5 ),
+    axis.title.x = element_text(vjust=-0.5, size = 15, family ="serif"),
+    axis.title.y = element_text(vjust=0.75,family ="serif", size = 15),
+    axis.text.x=element_text(angle=50, size=10, vjust=0.5, family ="serif"),
+    axis.text.y=element_text(angle= 0, size=10, vjust=.05,family ="serif"),
+    panel.background = element_rect(fill = 'white'),
+    panel.grid.major = element_line(colour = "grey", size = .3, linetype = "dashed" ),
+    panel.grid.minor = element_line(colour = "white", size = .5)
+  ) + 
+  ylim(0, .5) +
+  scale_x_continuous(breaks = seq(2008, 2017, 1), limits = c(2008,2017)) +
+  labs(x="Year", y="Incarceration Rate (% of State Population)")
+incarc.rate.vis
+
+### Interesting, interesting. so the percentage of the jail population of the overall
+# state population is relatively constant
+
+#### Lets join the VERA data to the Census Data for Colorado and see what happens
+#
+US.Census <- read_csv("censusSAIPEByCountyAndYear copy.csv")
+co.census <- US.Census %>% filter(Abbreviation == "CO")
 
 
-
-
-
+View(co.census)
 
 
 
