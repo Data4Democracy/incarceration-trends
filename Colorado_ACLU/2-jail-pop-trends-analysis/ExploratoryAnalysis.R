@@ -28,7 +28,8 @@ library(xlsx)
 ########
 crime <- read_csv("colorado_crime_stats.csv") # This file details the type of crime documented in Colorado by year and was generated from the script clean.R
 population <- read_csv("colorado_population_2008-2017.csv")[,-1] # File details the ACS Population estimates for colorado population 2008-2017
-incarceration <- read.xlsx("colorado-incarceration-hist.xlsx",1)[,-3] # Details Jail population by year from the Vera incarceration-trends data set
+incarceration <- read.xlsx("colorado-incarceration-hist.xlsx",1, header = FALSE)[,-3] # Details Jail population by year from the Vera incarceration-trends data set
+census_join <- read_csv("vera_census_join.csv")
 
 # Analysis Steps #
 ##################
@@ -60,6 +61,8 @@ crime.rate.vis <- ggplot(crime.per, aes(x= year, y = crime.percent, color = clas
   scale_x_continuous(breaks = seq(2008, 2017, 1), limits = c(2008,2017)) +
   labs(x="Year", y="Crime Rate (% of State Population)" , color = "Type of Crime")
 crime.rate.vis
+
+
 
 
 
