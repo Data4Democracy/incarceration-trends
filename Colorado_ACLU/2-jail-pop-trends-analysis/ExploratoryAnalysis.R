@@ -29,7 +29,7 @@ library(xlsx)
 crime <- read_csv("colorado_crime_stats.csv") # This file details the type of crime documented in Colorado by year and was generated from the script clean.R
 population <- read_csv("colorado_population_2008-2017.csv")[,-1] # File details the ACS Population estimates for colorado population 2008-2017
 incarceration <- read.xlsx("colorado-incarceration-hist.xlsx",1, header = FALSE)[,-3] # Details Jail population by year from the Vera incarceration-trends data set
-co_vera_data <-  read.xlsx("Colorado-Incarceration-Data.xlsx",1, header = FALSE)[,-3] # Details all Vera incarceration-trends data set for state of Colorado
+co_vera_data <-  read_csv("Colorado-Incarceration-Data.csv") # Details all Vera incarceration-trends data set for state of Colorado
 census_join <- read_csv("vera_census_join.csv")
 
 # Analysis Steps #
@@ -63,9 +63,25 @@ crime.rate.vis <- ggplot(crime.per, aes(x= year, y = crime.percent, color = clas
   labs(x="Year", y="Crime Rate (% of State Population)" , color = "Type of Crime")
 crime.rate.vis
 
+# Look at total CO jail population for each year
+# do this using the vera data
+co_jail_pop_by_year <- co_vera_data %>% 
+  select(year, total_jail_pop, female_jail_pop, male_jail_pop, black_jail_pop, white_jail_pop) %>%
+  group_by(year)%>%
+  summarise_all(funs(sum(., na.rm = TRUE)))
+View(co_jail_pop_by_year)
 
+# Look at the incarceration vile
+View(incarceration)
+names(incarceration) <- c("year", "jail_pop" )
 
+  # They are equal. perfect, i can use the incarceration file instead
 
+incarceration.perc.co <- incarceration %>% 
+    inner_join(population, by = "year") %>% 
+    mutate(jail.perc = jail_pop/pop_estimate *100 ) %>%
+    select(year, jail.perc)
+View(incarceration.perc.co)
 
 
 
