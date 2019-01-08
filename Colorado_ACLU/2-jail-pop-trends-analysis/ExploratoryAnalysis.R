@@ -29,6 +29,7 @@ library(xlsx)
 crime <- read_csv("colorado_crime_stats.csv") # This file details the type of crime documented in Colorado by year and was generated from the script clean.R
 population <- read_csv("colorado_population_2008-2017.csv")[,-1] # File details the ACS Population estimates for colorado population 2008-2017
 incarceration <- read.xlsx("colorado-incarceration-hist.xlsx",1, header = FALSE)[,-3] # Details Jail population by year from the Vera incarceration-trends data set
+co_vera_data <-  read.xlsx("Colorado-Incarceration-Data.xlsx",1, header = FALSE)[,-3] # Details all Vera incarceration-trends data set for state of Colorado
 census_join <- read_csv("vera_census_join.csv")
 
 # Analysis Steps #
