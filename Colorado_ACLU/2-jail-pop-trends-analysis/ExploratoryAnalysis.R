@@ -108,15 +108,50 @@ incarc.rate.vis
 
 ### Interesting, interesting. so the percentage of the jail population of the overall
 # state population is relatively constant
+# Lets look at this at this at an individual county level
 
-#### Lets join the VERA data to the Census Data for Colorado and see what happens
-#
-US.Census <- read_csv("censusSAIPEByCountyAndYear copy.csv")
-co.census <- US.Census %>% filter(Abbreviation == "CO")
-
-
-View(co.census)
+# Incarceration rates 2008-present
+county.incarc.rate <- co_vera_data %>% select(year, county_name, total_pop, total_pop_15to64, 
+                                             urbanicity, region, total_jail_pop) %>%
+  mutate(incarc_perc = total_jail_pop/total_pop_15to64*100)
 
 
+# Create Table of Incarceration rates by county and year 
+county.incarc.table <- county.incarc.rate %>%
+  select(year, county_name, incarc_perc) %>%
+  spread(county_name, incarc_perc)
+
+# Incarceration rates 2008-2015
+county.incarc.rate.2008 <- county.incarc.rate %>% filter(year>2007 & year < 2016)
+
+# Difference in incarceration rates 2015 - 2008
+incarc.diff.15.08 <- county.incarc.rate %>% 
+  filter(year == 2015 | year == 2008) %>% 
+  select(year, county_name, incarc_perc) %>%
+  mutate(diff2015.08 = incarc_perc -lag(incarc_perc, default = first(incarc_perc))) %>%
+  filter(year == 2015) %>%
+  select(county_name, diff2015.08) %>%
+  mutate(changesign = ifelse(diff2015.08<0, "Less", "More"))
+
+
+incarc.diff.15.08.plot  <- ggplot(incarc.diff.15.08,
+                         aes(x=reorder(county_name, -diff2015.08), y=diff2015.08, fill=changesign)) + 
+                        stat_summary(fun.y="sum", geom="bar", position="dodge") + coord_flip() +
+                         labs(x="County", y="2015 Incarceration Perc - 2008 Incarceration Perc",
+                            title="Change in Incarceration Percentage of County Population (2015 - 2008)"
+                                                 ) +   
+  theme(
+                                                   plot.title = element_text(size=15, face="bold", family = "serif", hjust = 0.5 ),
+                                                   axis.title.x = element_text(vjust=-0.5, size = 15, family ="serif"),
+                                                   axis.title.y = element_text(vjust=0.75,family ="serif", size = 15),
+                                                   axis.text.x=element_text(angle=0, size=10, vjust=0.5, family ="serif"),
+                                                   axis.text.y=element_text(angle= 0, size=10, vjust=.05,family ="serif"),
+                                                   panel.background = element_rect(fill = 'white'),
+                                                   panel.grid.major = element_line(colour = "grey", size = .3, linetype = "dashed" ),
+                                                   panel.grid.minor = element_line(colour = "white", size = .5)
+                                                 ) + 
+  guides(fill=FALSE)
+
+incarc.diff.15.08.plot
 
 
