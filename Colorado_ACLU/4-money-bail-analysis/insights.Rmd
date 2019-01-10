@@ -58,6 +58,12 @@ kable(head(arrange(select(filter(bondset, total_bond>10), county, year, crime_ty
 
 ### Bond Set Changes from 2014-2016
 
+```{r}
+ggplot(bondset, aes(money_perc, fill=crime_type)) + geom_density(alpha=0.5) + facet_wrap(~year) +
+    theme(legend.position = "bottom") 
+```
+
+
 ```{r, fig.width=12, fig.height=25}
 ggplot(filter(bondset, !is.na(total_bond)), 
        aes(x=reorder(county, total_bond), y=100*money_perc, fill=crime_type)) + 
@@ -171,7 +177,13 @@ kable(felony.mis.diff, col.names = c("Most Serious Offense in New Filing",
 
 
 
+## New Filings
 
+```{r}
+ggplot(filter(county, year==2016&!diff_new==0), 
+       aes(x=reorder(county, diff_new), y=diff_new, fill=diff_dir)) + 
+  stat_summary(fun.y="sum", geom="bar", position="dodge") + coord_flip() + facet_wrap(~off_type)
+```
 
 
 

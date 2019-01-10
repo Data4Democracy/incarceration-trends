@@ -297,3 +297,29 @@ new.offtype <- select(new.offtype, firstofftype, everything())
 
 # write as a csv
 write.csv(new.offtype, "newfilings-bybond&offensetype.csv")
+
+# ....................................................................................................
+
+bondset <- read_csv("county_bond_data.csv")
+newfiling <- read_csv("newfilings-bycounty&bondtype.csv") %>% select(-X1)
+
+names(bondset) <- c("county", "year", "money_bond_freq", "pr_bond_freq", 
+                    "total_bond_freq", "off_type")
+
+bondset <- mutate(bondset, 
+                  off_type=as.factor(off_type), 
+                  off_type=fct_recode(off_type, 
+                                      "Felony"="felonybondtype",
+                                      "Misdemeanor"="misdemeanorbondtype"),
+                  off_type=as.character(off_type))
+
+names(newfiling) <- c("off_type", "county", "year", "money_posted", 
+                      "money_bond_new_no", "money_new_yes", "pr_posted", 
+                      "pr_new_no", "pr_new_yes", "total_new")
+
+county_bonds <- left_join(bondset, newfiling, by=c("county", "year", "off_type"))
+
+write.csv(county_bonds, "complete-county-bond.csv")
+
+
+

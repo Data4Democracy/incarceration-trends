@@ -95,4 +95,20 @@ g <- ggplot(filter(felony.mis.diff, abs(diff)>0),
 
 # ....................................................................................................
 
+county <- read_csv("complete-county-bond.csv") %>% select(-X1)
+
+county <- mutate(county,
+                 money_new_perc = money_new_yes/money_posted, 
+                 pr_new_perc = pr_new_yes/pr_posted, 
+                 diff_new=money_new_perc-pr_new_perc,
+                 diff_dir=ifelse(diff_new>0, "More New Filings for Money Bonds", "More New Filings for PR Bonds"))
+
+county %>% group_by(year) %>% summarize(diff_mean=mean(abs(diff_new), na.rm=T))
+
+ggplot(filter(county, year==2016&!diff_new==0), 
+       aes(x=reorder(county, diff_new), y=diff_new, fill=diff_dir)) + 
+  stat_summary(fun.y="sum", geom="bar", position="dodge") + coord_flip() + facet_wrap(~off_type)
+
+# ....................................................................................................
+
 save.image("moneybail.Rdata")
