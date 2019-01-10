@@ -17,6 +17,9 @@ We met to discus the first steps for task 1 for the Colorado ACLU collaboartion.
 - Get Response from ACLU in time to discuss the responses at the next meeting
 
 *Members in Attendance*
+
 Vivian
+
 Kyler
+
 Garrett
