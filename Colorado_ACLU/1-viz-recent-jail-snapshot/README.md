@@ -19,7 +19,5 @@ We met to discus the first steps for task 1 for the Colorado ACLU collaboartion.
 *Members in Attendance*
 
 Vivian
-
 Kyler
-
 Garrett
