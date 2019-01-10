@@ -177,6 +177,7 @@ kable(felony.mis.diff, col.names = c("Most Serious Offense in New Filing",
 
 
 
+
 ## New Filings
 
 ```{r}
