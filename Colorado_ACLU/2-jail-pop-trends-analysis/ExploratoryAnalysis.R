@@ -65,8 +65,10 @@ crime.rate.vis
 
 # Look at total CO jail population for each year
 # do this using the vera data
+View(co_vera_data)
+
 co_jail_pop_by_year <- co_vera_data %>% 
-  select(year, total_jail_pop, female_jail_pop, male_jail_pop, black_jail_pop, white_jail_pop) %>%
+  select(year, total_jail_pop, female_jail_pop, male_jail_pop, black_jail_pop, white_jail_pop, total_pop_15to64, total_pop) %>%
   group_by(year)%>%
   summarise_all(funs(sum(., na.rm = TRUE)))
 View(co_jail_pop_by_year)
@@ -75,15 +77,14 @@ View(co_jail_pop_by_year)
 View(incarceration)
 names(incarceration) <- c("year", "jail_pop" )
 
-incarc.pop.compare <- incarceration %>% 
-  inner_join(population, by = "year")
-View(incarc.pop.compare)
+incarc.pop <- incarceration %>% 
+  left_join(select(co_jail_pop_by_year, year, total_pop_15to64, total_pop), by = "year")
+incarc.pop[year==2017, c("total_pop_15to64","total_pop")] <- c(,)
 
   # They are equal. perfect, i can use the incarceration file instead
 
-incarceration.perc.co <- incarceration %>% 
-    inner_join(population, by = "year") %>% 
-    mutate(jail.perc = jail_pop/pop_estimate *100 ) %>%
+incarceration.perc.co <- incarc.pop %>% 
+    mutate(jail.perc = jail_pop/total_pop_15to64 *100 ) %>%
     select(year, jail.perc)
 View(incarceration.perc.co)
 
@@ -114,7 +115,7 @@ incarc.rate.vis
 county.incarc.rate <- co_vera_data %>% select(year, county_name, total_pop, total_pop_15to64, 
                                              urbanicity, region, total_jail_pop) %>%
   mutate(incarc_perc = total_jail_pop/total_pop_15to64*100)
-
+View(county.incarc.rate)
 
 # Create Table of Incarceration rates by county and year 
 county.incarc.table <- county.incarc.rate %>%
@@ -153,5 +154,84 @@ incarc.diff.15.08.plot  <- ggplot(incarc.diff.15.08,
   guides(fill=FALSE)
 
 incarc.diff.15.08.plot
+
+
+########### 
+# Maybe this can be more difference in difference (%change incarceration/%change population)
+perc.change.data <- co_vera_data %>%
+  select(year, county_name, total_pop_15to64, total_jail_pop) %>%
+  filter(year == 2015 | year == 2008) %>%
+  mutate(
+    dif_15to64_pop = (total_pop_15to64 -lag(total_pop_15to64, default = first(total_pop_15to64)))*100/lag(total_pop_15to64, default = first(total_pop_15to64)),
+    dif_jail_pop = (total_jail_pop - lag(total_jail_pop, default = first(total_jail_pop)))*100/lag(total_jail_pop, default = first(total_jail_pop))
+    ) %>%
+  filter(year == 2015) %>%
+  select(county_name, dif_15to64_pop, dif_jail_pop) %>%
+  mutate(
+    dif_in_dif = dif_jail_pop/dif_15to64_pop,
+    changesign = ifelse(dif_in_dif < 0, "Less", "More")
+    ) #%>%
+  #filter(abs(dif_in_dif) > 
+  
+
+dif.in.dif.plot  <- ggplot(filter(perc.change.data, abs(dif_in_dif) < 150 ) ,
+                                  aes(x=reorder(county_name, -dif_in_dif), y=dif_in_dif, fill=changesign)) + 
+  stat_summary(fun.y="sum", geom="bar", position="dodge") + coord_flip() +
+  labs(x="County", y="Percentage Change in Jail Pop/Percentage Change in County Pop (2015 - 2008)",
+       title="Percentage Change in Jail Population Relative to Percentage Change in County Population (2015 - 2008)"
+  ) +   
+  theme(
+    plot.title = element_text(size=15, face="bold", family = "serif", hjust = 0.5 ),
+    axis.title.x = element_text(vjust=-0.5, size = 15, family ="serif"),
+    axis.title.y = element_text(vjust=0.75,family ="serif", size = 15),
+    axis.text.x=element_text(angle=0, size=10, vjust=0.5, family ="serif"),
+    axis.text.y=element_text(angle= 0, size=10, vjust=.05,family ="serif"),
+    panel.background = element_rect(fill = 'white'),
+    panel.grid.major = element_line(colour = "grey", size = .3, linetype = "dashed" ),
+    panel.grid.minor = element_line(colour = "white", size = .5)
+  ) + 
+  guides(fill=FALSE)
+
+dif.in.dif.plot
+
+
+## Relative Change Plots
+
+Rel.Change.plot  <- ggplot(filter(perc.change.data, abs(dif_in_dif) < 150 ) ,
+                           aes(x= dif_15to64_pop, y=dif_jail_pop)) + 
+  geom_point()+
+  ggtitle('% Change in Incarceration v % Change in Population (2015 - 2008)') +
+  theme(
+    plot.title = element_text(size=15, face="bold", family = "serif", hjust = 0.5 ),
+    axis.title.x = element_text(vjust=-0.5, size = 15, family ="serif"),
+    axis.title.y = element_text(vjust=0.75,family ="serif", size = 15),
+    axis.text.x=element_text(angle=0, size=10, vjust=0.5, family ="serif"),
+    axis.text.y=element_text(angle= 0, size=10, vjust=.05,family ="serif"),
+    panel.background = element_rect(fill = 'white'),
+    panel.grid.major = element_line(colour = "grey", size = .5, linetype = "dashed" ),
+    panel.grid.minor = element_line(colour = "grey", size = .3, linetype = "dashed")
+  ) + 
+  ylim(-75, 75) +
+  scale_x_continuous(breaks = seq(-20, 20, 5), limits = c(-20,20)) +
+  labs(x="% Change in Population", y="% Change in Jail Population") +
+  geom_text(aes(label=county_name), hjust=-.1, vjust=.1, size = 2) +
+  geom_hline(aes(yintercept = 0)) +
+  geom_vline(aes(xintercept = 0)) +
+  geom_abline(intercept = 0, slope = 1)
+
+
+Rel.Change.plot
+
+
+
+save.image("incarceration.explore.Rdata")
+
+
+
+
+
+
+
+
 
 
