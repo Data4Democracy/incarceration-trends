@@ -1,0 +1,192 @@
+---
+title: 'Colorado ACLU Project: Money Bail Analysis'
+author: "C. McClintock"
+date: "Winter 2019"
+output: 
+  html_document:
+    toc: true
+    toc_float: false
+    toc_collapsed: false
+    toc_depth: 3
+    theme: yeti
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
+load("moneybail.Rdata")
+library(tidyverse)
+library(knitr)
+library(RColorBrewer)
+```
+
+
+## Notes
+
+Misdemeanor offense data does not include Denver County. 
+
+## Use of Money vs. PR Bonds by County
+
+### Overview
+
+```{r, fig.width=8, fig.height=28}
+ggplot(filter(bondset, !is.na(total_bond)&year=="2016"), 
+       aes(x=reorder(county, total_bond), y=100*money_perc, fill=crime_type)) + 
+  stat_summary(fun.y="sum", geom="bar", position="dodge") + coord_flip() + facet_wrap(~year) +
+  labs(title="Money Bonds as a Percent of All Bonds, by County and Offense Class",
+       subtitle="Ordered by total number of bonds set, from highest to lowest, no midemeanor data available for Denver",
+       x="County",
+       y="Money Bonds as a % of All Bonds",
+       caption="Data from the Colorado ACLU, missing misdemeanor data for Denver County.",
+       fill="Offense Class") + scale_fill_manual(values=c("#003f5c","#bc5090")) +
+  theme(legend.position = "bottom") + 
+  geom_text(aes(label=100*money_perc), stat = "identity", position = position_dodge(0.9), hjust = -.2)
+```
+
+
+```{r tab-felony-money-2016}
+kable(head(arrange(select(filter(bondset, total_bond>50), 
+                          county, year, crime_type, money_perc, total_bond), 
+                   -year, crime_type, -money_perc), 10), 
+      col.names = c("County", "Year", "Offense Class", "Money Bonds as a % of All Bonds", 
+                    "Total Bonds"),
+      caption = "Counties With Highest Percentage Money Bond for Felony Offenses in 2016")
+```
+
+```{r tab-mis-money}
+kable(head(arrange(select(filter(bondset, total_bond>10), county, year, crime_type, money_perc, total_bond), -year, desc(crime_type), -money_perc), 10), col.names = c("County", "Year", "Offense Class", "Money Bonds as a % of All Bonds", "Total Bonds"), caption = "Counties With Highest Percentage Money Bond for Misdemeanor Offenses in 2016")
+```
+
+### Bond Set Changes from 2014-2016
+
+```{r}
+ggplot(bondset, aes(money_perc, fill=crime_type)) + geom_density(alpha=0.5) + facet_wrap(~year) +
+    theme(legend.position = "bottom") 
+```
+
+
+```{r, fig.width=12, fig.height=25}
+ggplot(filter(bondset, !is.na(total_bond)), 
+       aes(x=reorder(county, total_bond), y=100*money_perc, fill=crime_type)) + 
+  stat_summary(fun.y="sum", geom="bar", position="dodge") + coord_flip() + facet_wrap(~year) +
+  labs(title="Money Bonds as a Percent of All Bonds, by County, Year, and Offense Class",
+       subtitle="Ordered by total number of bonds set, from highest to lowest, no midemeanor data available for Denver",
+       x="County",
+       y="Money Bonds as a % of All Bonds",
+       caption="Data from the Colorado ACLU, missing misdemeanor data for Denver County.",
+       fill="Offense Class") + scale_fill_manual(values=c("#003f5c","#bc5090")) +
+  theme(legend.position = "bottom") + 
+  geom_text(aes(label=100*money_perc), stat = "identity", position = position_dodge(0.9), hjust = -.2)
+```
+
+```{r, fig.height=15, fig.width=10}
+year.plot <- mutate(year.change, 
+                      diff=round(diff,3),
+                      changesign=ifelse(diff<0, "Less", 
+                                        "More"))
+year.plot <- filter(year.plot, (abs(diff)>0 )&bond_type=="Money Bond")
+
+g <- ggplot(year.plot,
+            aes(x=reorder(county, -diff), y=diff, fill=changesign)) + 
+  stat_summary(fun.y="sum", geom="bar", position="dodge") + coord_flip() +
+  facet_wrap(~crime_type) + 
+  labs(x="County", y="2016 Money Bail Rate - 2014 Money Bail Rate",
+       title="Change in Money Bail as Percentage of All Bonds 2014-2016, by Offense Class"
+       ) + guides(fill=FALSE)
+g
+```
+
+```{r eval=FALSE}
+kable(head(arrange(year.change, crime_type, bond_type, -abs(diff)), 10), 
+      col.names = c("County", "Offense Class", "Bond Type as a % of All Bonds", "2014", 
+                    "2015", "2016", "2014-2016 Difference"), 
+      caption="Counties with the Largest Change in Money Bonds for Felony Offenses as a % of All Bonds for Felony Offenses between 2014 and 2016")
+```
+
+```{r eval=FALSE}
+kable(head(arrange(filter(year.change), desc(crime_type), bond_type, -abs(diff)), 10), 
+      col.names = c("County", "Offense Class", "Bond Type as a % of All Bonds", "2014", 
+                    "2015", "2016", "2014-2016 Difference"), 
+      caption="Counties with the Largest Change in Money Bonds for Misdemeanor Offenses as a % of All Bonds for Misdemeanor between 2014 and 2016")
+
+```
+
+## New Filings by Bond Set Type by County
+
+
+## New Filing Offense Types
+
+The most common new charges while an individual is out on bond for a felony offense are traffic misdemeanors (23% of new filings), violation of a protection order (13%), and other custody violations (10%)
+
+```{r plot-newfiling-off, fig.width=11}
+g <- ggplot(filter(bond.new.off, !mostseriousoffense=="Total"&perc_postHB1236>0), 
+       aes(x=reorder(mostseriousoffense, perc_postHB1236), y=perc_postHB1236, fill=firstofftype)) + 
+  stat_summary(fun.y="sum", geom="bar", position="dodge") + coord_flip() + 
+  labs(y="Percent of all New Filings (post-HB13.1236)", 
+       x="Most Serious Offense in New Filing", 
+       fill="First Offense Class",
+       caption="Data from the Colorado ACLU",
+       title="Most Serious Offense in New Filing as % of all New Filings",
+       subtitle="Traffic Misdemeanor, Violation of a Protection Order, most common new charges") + 
+  theme(legend.position=c(0.8, 0.2)) + scale_fill_manual(values=c("#003f5c","#bc5090"))
+g
+```
+
+```{r fig.width=11}
+g <- ggplot(filter(felony.mis.diff, abs(diff)>0), 
+            aes(x=reorder(mostseriousoffense, diff), y=diff, fill=morelikely)) + 
+  stat_summary(fun.y="sum", geom="bar", position="dodge") + coord_flip() + ylim(-10, 10) +
+  labs(title="Difference in Percent of New Charges Filed between Misdemeanor and Felony First Offenses",
+       y="Percent Difference between Individuals Felony vs. Misdemeanor First Offenses", 
+       x="Most Serious Offense in New Filing", 
+       fill="More Likely") + 
+  theme(legend.position=c(0.8, 0.2)) + scale_fill_manual(values=c("#003f5c","#bc5090"))
+g
+```
+
+
+The most common new charges while an individual is out on bond for a misdemeanor offense are traffic misdemeanors (32% of new filings), violation of a protection order (30%), and other custody violations (7%)
+
+```{r}
+kable(select(filter(bond.new.off, firstofftype=="Felony"), 
+             firstofftype, mostseriousoffense, perc_preHB1236, perc_postHB1236, HB1236_impact), 
+      col.names = c("First Offense Class", "Most Serious Offense in New Filing", 
+                    "% of New Filings (pre-HB13.1236)", "% of New Filings (post-HB13.1236)",
+                    "Percent Change"),
+      caption="Most Serious Offense in New Filing, Felony Offenses")
+```
+
+### Impact of HB13.1236 on Money Bonds
+
+```{r}
+kable(select(filter(bond.new.off, firstofftype=="Misdemeanor"), 
+             firstofftype, mostseriousoffense, perc_preHB1236, perc_postHB1236, HB1236_impact),
+      col.names = c("First Offense Class", "Most Serious Offense in New Filing", 
+                    "% of New Filings (pre-HB13.1236)", "% of New Filings (post-HB13.1236)",
+                    "Percent Change"), 
+      caption="Most Serious Offense in New Filing, Misdemeanor Offenses")
+```
+
+
+```{r eval=F}
+kable(felony.mis.diff, col.names = c("Most Serious Offense in New Filing", 
+                                     "Percent of New Filings - Misdemeanor First Offense", 
+                                     "Percent of New Filings - Felony First Offense", 
+                                     "Difference Between Felony & Misdemeanor"),
+      caption="Difference between Felony & Misdemeanor in Frequency of Most Serious Offense in New Filing")
+```
+
+
+
+
+## New Filings
+
+```{r}
+ggplot(filter(county, year==2016&!diff_new==0), 
+       aes(x=reorder(county, diff_new), y=diff_new, fill=diff_dir)) + 
+  stat_summary(fun.y="sum", geom="bar", position="dodge") + coord_flip() + facet_wrap(~off_type)
+```
+
+
+
+
+
