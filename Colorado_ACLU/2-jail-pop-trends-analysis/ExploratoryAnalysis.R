@@ -1,7 +1,6 @@
 ###############################################################
 # Incarceration Trends for Colorado ACLU Exploratory Analysis # 
 
-
 # Intro  #
 ##########
 
@@ -31,6 +30,7 @@ population <- read_csv("colorado_population_2008-2017.csv")[,-1] # File details 
 incarceration <- read.xlsx("colorado-incarceration-hist.xlsx",1, header = FALSE)[,-3] # Details Jail population by year from the Vera incarceration-trends data set
 co_vera_data <-  read_csv("Colorado-Incarceration-Data.csv") # Details all Vera incarceration-trends data set for state of Colorado
 census_join <- read_csv("vera_census_join.csv")
+
 
 # Analysis Steps #
 ##################
@@ -62,6 +62,7 @@ crime.rate.vis <- ggplot(crime.per, aes(x= year, y = crime.percent, color = clas
   scale_x_continuous(breaks = seq(2008, 2017, 1), limits = c(2008,2017)) +
   labs(x="Year", y="Crime Rate (% of State Population)" , color = "Type of Crime")
 crime.rate.vis
+
 
 # Look at total CO jail population for each year
 # do this using the vera data
@@ -225,12 +226,6 @@ Rel.Change.plot
 
 
 save.image("incarceration.explore.Rdata")
-
-
-
-
-
-
 
 
 
