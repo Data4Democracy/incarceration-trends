@@ -22,7 +22,9 @@ General note: (derived from the notes provided in the data) I get the sense that
 
 ### Pretrial overview
 all "hover notes" were transcribed in a new `notes` column and deleted from the original location, if no column is listed, the notes came from the `county_or_jail` column. We could also add these in to increase clarity 
+
 when notes did not appear in the `county_or_jail` column, the column they came from was prepended
+
 where footnotes were indicated, they were added to the notes prepended with the column location
 tried to make column names sensible (still have questions about meaning here though)
 
@@ -39,7 +41,9 @@ unspecified blanks replaced with `NA`
 ### racial/ethnic data
 
 tried to make column names sensible
+
 the missing data here was not handled consistenly
+
 All counties/jails that had null data in the pretrial overview sheet (due to NO JAIL) were made `NULL` in this sheet. Some of these were left blank, some of these were indicated with `n/a`, **some of these had data!** For the latter, these data were left in place.
 
 Missing/Confounded data treatment
