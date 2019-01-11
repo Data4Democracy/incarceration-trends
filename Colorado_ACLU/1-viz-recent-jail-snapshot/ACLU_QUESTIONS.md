@@ -29,14 +29,14 @@ where footnotes were indicated, they were added to the notes prepended with the 
 tried to make column names sensible (still have questions about meaning here though)
 
 Missing data treatment
-Not applicable blanks were filled with `NULL`
-missing data blanks were filled with `NA`
-`n/a`s replaced with `NULL`
-unspecified blanks replaced with `NA`
-`Unasked` replaced with `NA`
-`they don't track` replaced with `NA`
-`unknown` replaced with `NA`
-`requested` replaced wit `NA`
+- Not applicable blanks were filled with `NULL`
+- missing data blanks were filled with `NA`
+- `n/a`s replaced with `NULL`
+- unspecified blanks replaced with `NA`
+- `Unasked` replaced with `NA`
+- `they don't track` replaced with `NA`
+- `unknown` replaced with `NA`
+- `requested` replaced wit `NA`
 
 ### racial/ethnic data
 
@@ -47,10 +47,10 @@ the missing data here was not handled consistenly
 All counties/jails that had null data in the pretrial overview sheet (due to NO JAIL) were made `NULL` in this sheet. Some of these were left blank, some of these were indicated with `n/a`, **some of these had data!** For the latter, these data were left in place.
 
 Missing/Confounded data treatment
-`replied "unknown"` changed to `NA`
-`unknown` changed to `NA`
-`n/a` changed to `NULL` **except:**
-`n/a` changed to `NA` for Huefano County (because there should be data
-blanks changed to `NA`, but some changed to `NULL` depending on data presence in the pretrial snapshot sheet
+- `replied "unknown"` changed to `NA`
+- `unknown` changed to `NA`
+- `n/a` changed to `NULL` **except:**
+- `n/a` changed to `NA` for Huefano County (because there should be data
+- blanks changed to `NA`, but some changed to `NULL` depending on data presence in the pretrial snapshot sheet
 
 ### hold breakdowns
