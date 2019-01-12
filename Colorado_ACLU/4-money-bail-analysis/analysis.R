@@ -17,7 +17,11 @@ bond.new.off <- read_csv("newfilings-bybond&offensetype.csv") %>% select(-X1)
 
 # ....................................................................................................
 
+<<<<<<< HEAD
 # COUNTY BOND SET BREAKDOWN
+=======
+# COUNTY BOND SET BREAKDOWNS
+>>>>>>> e6b1bd02ad0863cfb7259d01c877151e088098c5
 
 # rename bond variables
 names(bondset) <- c("county", "year", "money_bond", "pr_bond", "total_bond", "crime_type")
