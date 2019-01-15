@@ -18,6 +18,10 @@ General note: (derived from the notes provided in the data) I get the sense that
 - Where the counties had no jail, sometimes this was left blank and sometimes it was `n/a`, we should probably treat all of these as `NULL`, right?
 - why does dolores county have data despite not having any data (and no jail) in the pretial overivew sheet?
 
+## hold breakdowns
+
+- non-integer numeric data
+
 ## Notes about the data cleaning
 
 ### Pretrial overview
@@ -53,4 +57,16 @@ Missing/Confounded data treatment
 - `n/a` changed to `NA` for Huefano County (because there should be data
 - blanks changed to `NA`, but some changed to `NULL` depending on data presence in the pretrial snapshot sheet
 
+
 ### hold breakdowns
+
+Hover notes added to notes column, source column specified if not from the `county_or_jail` column
+
+Missing data treatment
+- blanks to `NA`
+- `N/A` to `NA`
+- `n/a` to `NA`
+- `replied "unknown"` to `NA`
+- `possibly some of the 19 are parole` to `NA`
+
+
