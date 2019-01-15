@@ -57,6 +57,7 @@ Missing/Confounded data treatment
 - `n/a` changed to `NA` for Huefano County (because there should be data
 - blanks changed to `NA`, but some changed to `NULL` depending on data presence in the pretrial snapshot sheet
 
+
 ### hold breakdowns
 
 Hover notes added to notes column, source column specified if not from the `county_or_jail` column
