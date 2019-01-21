@@ -1,5 +1,5 @@
 ---
-title: "Exploring The Jail Populatiom"
+title: "Exploring The Jail Population"
 author: "Sam Powers"
 date: "1/9/2019"
 output: html_document
