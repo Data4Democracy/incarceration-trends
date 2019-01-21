@@ -196,7 +196,7 @@ dif.in.dif.plot
 ## Relative Change Plots
 
 Rel.Change.plot  <- ggplot(filter(perc.change.data, abs(dif_in_dif) < 150 ) ,
-                           aes(x= dif_15to64_pop, y=dif_jail_pop)) + 
+                           aes(x= dif_15to64_pop, y=dif_jail_pop, color = as.factor(I(dif_15to64_pop - dif_jail_pop > 0)))) + 
   geom_point()+
   ggtitle('% Change in Incarceration v % Change in Population (2015 - 2008)') +
   theme(
@@ -207,20 +207,56 @@ Rel.Change.plot  <- ggplot(filter(perc.change.data, abs(dif_in_dif) < 150 ) ,
     axis.text.y=element_text(angle= 0, size=10, vjust=.05,family ="serif"),
     panel.background = element_rect(fill = 'white'),
     panel.grid.major = element_line(colour = "grey", size = .5, linetype = "dashed" ),
-    panel.grid.minor = element_line(colour = "grey", size = .3, linetype = "dashed")
+    panel.grid.minor = element_line(colour = "grey", size = .3, linetype = "dashed"),
+    legend.text = element_text(family = "serif"), 
+    legend.title = element_text(family = "serif", face = "bold"),
+    legend.position = c(0.2, 0.750)
   ) + 
   ylim(-75, 75) +
   scale_x_continuous(breaks = seq(-20, 20, 5), limits = c(-20,20)) +
-  labs(x="% Change in Population", y="% Change in Jail Population") +
+  labs(x="% Change in Population", y="% Change in Jail Population", color = "Net Incarceration Decrease") +
   geom_text(aes(label=county_name), hjust=-.1, vjust=.1, size = 2) +
   geom_hline(aes(yintercept = 0)) +
-  geom_vline(aes(xintercept = 0)) +
-  geom_abline(intercept = 0, slope = 1)
-
+  geom_vline(aes(xintercept = 0)) 
 
 Rel.Change.plot
 
-### Look at the Percentage of Pretrial Population ###
+
+####### Try to Visualize in a more productive way #####
+perc.change.data.plot <- perc.change.data %>% gather( type, change, 2:3)
+View(perc.change.data.plot)
+
+perc.change.plot  <- ggplot(perc.change.data.plot,
+                                  aes(x=reorder(county_name, -change), y=change, fill=type)) + 
+  stat_summary(fun.y="identity", geom="bar", position="dodge") + coord_flip() +
+  labs(x="County", y="Percent Change",
+       title="Change in Incarceration and County Population Since 2008",
+       fill = "County v Jail Population "
+  ) +   
+  theme(
+    plot.title = element_text(size=15, face="bold", family = "serif", hjust = 0.5 ),
+    axis.title.x = element_text(vjust=-0.5, size = 15, family ="serif"),
+    axis.title.y = element_text(vjust=0.75,family ="serif", size = 15),
+    axis.text.x=element_text(angle=0, size=10, vjust=0.5, family ="serif"),
+    axis.text.y=element_text(angle= 0, size=10, vjust=.05,family ="serif"),
+    panel.background = element_rect(fill = 'white'),
+    panel.grid.major = element_line(colour = "grey", size = .3, linetype = "dashed" ),
+    panel.grid.minor = element_line(colour = "white", size = .5),
+    legend.text = element_text(family = "serif"), 
+    legend.title = element_text(family = "serif", face = "bold"),
+    legend.position = c(0.9, 0.50)
+  ) + 
+  guides(fill=FALSE)
+
+
+perc.change.plot
+
+
+
+
+
+
+ ### Look at the Percentage of Pretrial Population ###
 
 pretrial_perc_co <- co_jail_pop_by_year %>%
   mutate(pretrial_perc = total_jail_pretrial/total_jail_pop *100) %>%
@@ -272,4 +308,8 @@ pretrial_county_plot <- ggplot(pretrial_county,
   ) 
 
 pretrial_county_plot
+
+
+
+
 

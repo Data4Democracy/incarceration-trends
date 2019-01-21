@@ -74,7 +74,7 @@ co_jail_pop_by_year <- co_vera_data %>%
 
 incarc.pop <- incarceration %>% 
   left_join(select(co_jail_pop_by_year, year, total_pop_15to64, total_pop), by = "year")
-incarc.pop[incarc.pop$year == 2017, c("total_pop_15to64","total_pop")] <- c(3742397,5530105)
+#incarc.pop[incarc.pop$year == 2017, c("total_pop_15to64","total_pop")] <- c(3742397,5530105)
 
 incarceration.perc.co <- incarc.pop %>% 
     mutate(jail.perc = jail_pop/total_pop_15to64 *100 ) %>%
@@ -95,7 +95,7 @@ incarc.rate.vis <- ggplot(incarceration.perc.co, aes(x= year, y = jail.perc)) +
     panel.grid.minor = element_line(colour = "white", size = .5)
   ) + 
   ylim(0, .5) +
-  scale_x_continuous(breaks = seq(2008, 2017, 1), limits = c(2008,2017)) +
+  scale_x_continuous(breaks = seq(2008, 2017, 1), limits = c(2008,2015)) +
   labs(x="Year", y="Incarceration Rate (% of State Population)")
 incarc.rate.vis
 ```
@@ -173,7 +173,7 @@ perc.change.data <- co_vera_data %>%
 
 
 Rel.Change.plot  <- ggplot(filter(perc.change.data, abs(dif_in_dif) < 150 ) ,
-                           aes(x= dif_15to64_pop, y=dif_jail_pop)) + 
+                           aes(x= dif_15to64_pop, y=dif_jail_pop, color = as.factor(I(dif_15to64_pop - dif_jail_pop > 0)))) + 
   geom_point()+
   ggtitle('% Change in Incarceration v % Change in Population (2015 - 2008)') +
   theme(
@@ -184,15 +184,25 @@ Rel.Change.plot  <- ggplot(filter(perc.change.data, abs(dif_in_dif) < 150 ) ,
     axis.text.y=element_text(angle= 0, size=10, vjust=.05,family ="serif"),
     panel.background = element_rect(fill = 'white'),
     panel.grid.major = element_line(colour = "grey", size = .5, linetype = "dashed" ),
-    panel.grid.minor = element_line(colour = "grey", size = .3, linetype = "dashed")
+    panel.grid.minor = element_line(colour = "grey", size = .3, linetype = "dashed"),
+    legend.text = element_text(family = "serif"), 
+    legend.title = element_text(family = "serif", face = "bold"),
+    legend.position = c(0.2, 0.65)
   ) + 
   ylim(-75, 75) +
   scale_x_continuous(breaks = seq(-20, 20, 5), limits = c(-20,20)) +
-  labs(x="% Change in Population", y="% Change in Jail Population") +
+  labs(x="% Change in Population", y="% Change in Jail Population", color = "Net Incarceration") +
   geom_text(aes(label=county_name), hjust=-.1, vjust=.1, size = 2) +
   geom_hline(aes(yintercept = 0)) +
   geom_vline(aes(xintercept = 0)) +
-  geom_abline(intercept = 0, slope = 1)
+  scale_color_hue(labels = c("Increase", "Decrease")) + 
+ 
+ annotate("text", x = c(10,10, -10, -10), y = c(50,-50, -50, 50), label = c("Jail Pop Increase, County Pop Increase","Jail Pop Decrease, County Pop Increase", "Jail Pop Decrease, County Pop Decrease", "Jail Pop Increase, County Pop Decrease"
+                                                                            ), family = "serif", fontface = 2)
+  
+
+
+
 
 
 Rel.Change.plot
