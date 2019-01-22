@@ -105,12 +105,3 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-
-# emacs
-*~
-*#
-
-# haskell
-/dist
-/dist-newstyle
-cabal.project.local
