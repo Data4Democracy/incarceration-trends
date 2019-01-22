@@ -14,6 +14,7 @@ library(tidyverse)
 library(knitr)
 
 load("moneybail.RData")
+co_vera_data <- read_csv("Colorado-Incarceration-Data.csv")
 ```
 
 
@@ -71,11 +72,51 @@ g <- ggplot(year.plot,
 g
 ```
 
-```{r, fig.width=8, fig.height=12}
+
+
+
+
+
+
+
+
+```{r, fig.height=10, fig.width = 14 }
+
 county.incarc.rate <- co_vera_data %>% select(year, county_name, total_pop, total_pop_15to64, 
                                              urbanicity, region, total_jail_pop) %>%
   mutate(incarc_perc = total_jail_pop/total_pop_15to64*100)
 
+# Difference in incarceration rates 2015 - 2008
+incarc.diff.15.08 <- county.incarc.rate %>% 
+  filter(year == 2015 | year == 2008) %>% 
+  select(year, county_name, incarc_perc) %>%
+  mutate(diff2015.08 = incarc_perc -lag(incarc_perc, default = first(incarc_perc))) %>%
+  filter(year == 2015) %>%
+  select(county_name, diff2015.08) %>%
+  mutate(changesign = ifelse(diff2015.08<0, "Less", "More"))
+
+
+incarc.diff.15.08.plot  <- ggplot(filter(incarc.diff.15.08, diff2015.08 < 1),
+                         aes(x=reorder(county_name, -diff2015.08), y=diff2015.08, fill=changesign)) + 
+                        stat_summary(fun.y="sum", geom="bar", position="dodge") + coord_flip() +
+                         labs(x="County", y="2015 Incarceration Perc - 2008 Incarceration Perc",
+                            title="Change in Incarceration Percentage of County Population (2015 - 2008)"
+                                                 ) +   
+  theme(
+                      plot.title = element_text(size=15, face="bold", family = "serif", hjust =0.5 ),
+                      axis.title.x = element_text(vjust=-0.5, size = 15, family ="serif"),
+                      axis.title.y = element_text(vjust=0.75,family ="serif", size = 15),
+                      axis.text.x=element_text(angle=0, size=10, vjust=0.5, family ="serif"),
+                      axis.text.y=element_text(angle= 0, size=10, vjust=.05,family ="serif"),
+                      panel.background = element_rect(fill = 'white'),
+                      panel.grid.major = element_line(colour = "grey", size = .3, linetype = "dashed" ),
+                      panel.grid.minor = element_line(colour = "white", size = .5)
+                                                 ) + 
+  guides(fill=FALSE) + 
+  geom_vline(xintercept = 2.5, linetype=2, color = "red") + 
+  geom_vline(xintercept = 3.5, linetype=2, color = "red") 
+
+incarc.diff.15.08.plot
 
 ```
 
