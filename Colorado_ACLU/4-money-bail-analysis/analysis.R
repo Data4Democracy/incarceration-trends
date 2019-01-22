@@ -17,11 +17,11 @@ bond.new.off <- read_csv("newfilings-bybond&offensetype.csv") %>% select(-X1)
 
 # ....................................................................................................
 
-<<<<<<< HEAD
-# COUNTY BOND SET BREAKDOWN
-=======
-# COUNTY BOND SET BREAKDOWNS
->>>>>>> e6b1bd02ad0863cfb7259d01c877151e088098c5
+# <<<<<<< HEAD
+# # COUNTY BOND SET BREAKDOWN
+# =======
+# # COUNTY BOND SET BREAKDOWNS
+# >>>>>>> e6b1bd02ad0863cfb7259d01c877151e088098c5
 
 # rename bond variables
 names(bondset) <- c("county", "year", "money_bond", "pr_bond", "total_bond", "crime_type")
@@ -37,6 +37,9 @@ bondset <- mutate(bondset,
 # which counties are using money bonds most often by crime type in 2016?
 head(arrange(filter(bondset, total_bond>50), -year, crime_type, -money_perc), 10)
 head(arrange(filter(bondset, total_bond>50), -year, desc(crime_type), -money_perc), 10)
+
+head(arrange(filter(bondset, total_bond>50), year, crime_type, -money_perc), 10)
+head(arrange(filter(bondset, total_bond>50), year, desc(crime_type), -money_perc), 10)
 
 # how did bondset percentages change from 2014-2016 (if at all)?
 year.change <- gather(filter(bondset, total_bond>50), key="bond_type", value="n_bonds", money_bond:total_bond, money_perc:pr_perc)
@@ -185,8 +188,45 @@ ggplot(filter(county, year==2016), aes(x=pr_new_perc, y=crime_property_rate)) + 
 ggplot(filter(county, year==2016), aes(x=pr_new_perc, y=crime_society_rate)) + geom_point() + 
   geom_smooth(method="lm")  + facet_wrap(~off_type)
 
-ggplot(filter(county, year==2016), aes(y=money_new_perc, x=pop_density)) + geom_point() + 
+lm <- lm(money_new_perc ~ pr_new_perc + crime_persons_rate + crime_society_rate + 
+           crime_property_rate + money_posted + pop_density + off_type, data=county)
+summary(lm)
+
+
+lm <- lm(money_set_perc ~ money_posted_perc + money_new_perc + crime_persons_rate + crime_society_rate + 
+           crime_property_rate + money_posted + pop_density + off_type, data=county)
+summary(lm)
+
+
+
+# ....................................................................................................
+
+# add in county level data 
+saipe <- read_csv("complete-county-bond-SAIPE.csv")
+saipe <- unique(select(saipe, county, year, medianHI, povertyR))
+county <- left_join(county, saipe, by=c("county", "year"))
+
+
+lm <- lm(money_set_perc ~ money_posted_perc + money_new_perc + crime_persons_rate + 
+           crime_society_rate + crime_property_rate + money_posted + pop_density + 
+           off_type + medianHI + povertyR, data=subset(county, year=="2016"))
+summary(lm)
+
+
+margins(lm)
+
+ggplot(filter(county, year==2016), aes(x=money_set_perc, y=medianHI)) + geom_point() + 
+  geom_smooth()  + facet_wrap(~off_type)
+
+ggplot(filter(county, year==2016), aes(x=money_set_perc, y=povertyR)) + geom_point() + 
   geom_smooth(method="lm")  + facet_wrap(~off_type)
+
+ggplot(filter(county, year==2016), aes(x=money_posted_perc, y=medianHI)) + geom_point() + 
+  geom_smooth(method="lm")  + facet_wrap(~off_type)
+
+ggplot(filter(county, year==2016), aes(x=money_posted_perc, y=povertyR)) + geom_point() + 
+  geom_smooth(method="lm")  + facet_wrap(~off_type)
+
 
 # ....................................................................................................
 
