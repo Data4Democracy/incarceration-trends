@@ -9,11 +9,12 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 library(knitr)
 
-load("moneybail.RData")
+load("~/Documents/GitHub/incarceration-trends/Colorado_ACLU/4-money-bail-analysis/moneybail.Rdata")
 co_vera_data <- read_csv("Colorado-Incarceration-Data.csv")
 ```
 
@@ -76,6 +77,10 @@ g
 The Jail Population of Lincoln County, as a percentage of the county population, has steadily increased, peaking in 2013. 
 
 ```{r, fig.width = 14}
+county.incarc.rate <- co_vera_data %>% select(year, county_name, total_pop, total_pop_15to64, 
+                                             urbanicity, region, total_jail_pop) %>%
+  mutate(incarc_perc = total_jail_pop/total_pop_15to64*100)
+
 incarc.rate.vis <- ggplot(filter(county.incarc.rate, county_name == "Lincoln County"), aes(x= year, y = incarc_perc)) +
   geom_line() + 
   geom_point()+
@@ -102,9 +107,7 @@ From 2008 to 2015, incarceration increased by almost 25%. In relationship to oth
 
 ```{r, fig.height=10, fig.width = 14 }
 
-county.incarc.rate <- co_vera_data %>% select(year, county_name, total_pop, total_pop_15to64, 
-                                             urbanicity, region, total_jail_pop) %>%
-  mutate(incarc_perc = total_jail_pop/total_pop_15to64*100)
+
 
 # Difference in incarceration rates 2015 - 2008
 incarc.diff.15.08 <- county.incarc.rate %>% 
@@ -146,6 +149,8 @@ Due to the nature of incarceration as a proportion (Jail Population/County Popul
 Lincoln county falls into the second quadrant, which means that while the county population has decreased slightly since 2008, the jail population has increased by about 35%. 
 
 ```{r, fig.height = 14, fig.width = 14}
+
+
 perc.change.data <- co_vera_data %>%
   select(year, county_name, total_pop_15to64, total_jail_pop) %>%
   filter(year == 2015 | year == 2008) %>%
