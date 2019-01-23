@@ -10,7 +10,8 @@ output:
 
 ```{r setup, include=FALSE}
 
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+
 library(tidyverse)
 library(knitr)
 
