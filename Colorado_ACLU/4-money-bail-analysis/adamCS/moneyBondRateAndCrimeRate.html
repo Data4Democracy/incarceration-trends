@@ -1,4 +1,4 @@
-<html><head><title>Colorado Money Bond Rate vs Crime rate</title><link href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.4/tufte.min.css" rel="stylesheet"><meta content="width=device-width, initial-scale=1" name="viewport"><script src="https://cdn.jsdelivr.net/npm/vega@4.4.0"></script><script src="https://cdn.jsdelivr.net/npm/vega-lite@3.0.0-rc11"></script><script src="https://cdn.jsdelivr.net/npm/vega-embed@3.28.0"></script></head><body><article><section><h2>Colorado Bond Rates and Crime Rates (preliminary)</h2><p class="subtitle">Adam Conner-Sax</p><p>Each county in Colorado issues money bonds and personal recognizance bonds.  For each county I look at the % of money bonds out of all bonds issued and the crime rate.  We have 3 years of data and there are 64 counties in Colorado (each with vastly different populations).  So I&#39;ve used a population-weighted k-means clustering technique to reduce the number of points to at most 7 per year. Each circle in the plot below represents one cluster of counties with similar money bond and poverty rates.  The size of the circle represents the total population in the cluster.</p></section><figure id="crimeRateVsMoneyBondRate"><script type="text/javascript">var vlSpec=
+<html><head><title>Colorado Money Bond Rate vs Crime rate</title><link href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.4/tufte.min.css" rel="stylesheet"><meta content="width=device-width, initial-scale=1" name="viewport"><script src="https://cdn.jsdelivr.net/npm/vega@4.4.0"></script><script src="https://cdn.jsdelivr.net/npm/vega-lite@3.0.0-rc11"></script><script src="https://cdn.jsdelivr.net/npm/vega-embed@3.28.0"></script></head><body><article><section><h2>Colorado Bond Rates and Crime Rates (preliminary)</h2><p class="subtitle">Adam Conner-Sax</p><p>Each county in Colorado issues money bonds and personal recognizance bonds.  For each county I look at the % of money bonds out of all bonds issued and the crime rate.  We have 3 years of data and there are 64 counties in Colorado (each with vastly different populations).  So I&#39;ve used a population-weighted k-means clustering technique to reduce the number of points to at most 7 per year. Each circle in the plot below represents one cluster of counties with similar money bond and poverty rates.  The size of the circle represents the total population in the cluster.</p></section><figure id="crimeRateVsMoneyBondRateMerged"><script type="text/javascript">var vlSpec=
 {
     "height": 400,
     "autosize": {
@@ -8,178 +8,184 @@
     "data": {
         "values": [
             {
+                "CrimeRate": 3.598280067389159,
                 "year": 2014,
-                "crime_rate": 6.172610890954655,
-                "money_bond_rate": 74.66442980990779,
-                "EstPopulation": 1296048
+                "money_bond_rate": 76.17867342174632,
+                "EstPopulation": 119307
             },
             {
+                "CrimeRate": 4.3519916947144965,
                 "year": 2014,
-                "crime_rate": 4.509986932984877,
-                "money_bond_rate": 65.87927117413113,
-                "EstPopulation": 455345
+                "money_bond_rate": 73.05830448941227,
+                "EstPopulation": 362179
             },
             {
+                "CrimeRate": 2.977270874792004,
                 "year": 2014,
-                "crime_rate": 2.186563216363957,
-                "money_bond_rate": 80.23320553567768,
-                "EstPopulation": 11342
+                "money_bond_rate": 79.25128733156183,
+                "EstPopulation": 503011
             },
             {
+                "CrimeRate": 4.5728450034551615,
                 "year": 2014,
-                "crime_rate": 5.212970130959304,
-                "money_bond_rate": 47.41069262394528,
-                "EstPopulation": 496032
+                "money_bond_rate": 65.57754519304852,
+                "EstPopulation": 424003
             },
             {
+                "CrimeRate": 5.19832792572843,
                 "year": 2014,
-                "crime_rate": 4.343197785820729,
-                "money_bond_rate": 84.07688929700294,
-                "EstPopulation": 361669
+                "money_bond_rate": 47.37025901016903,
+                "EstPopulation": 498064
             },
             {
+                "CrimeRate": 6.248921861990187,
                 "year": 2014,
-                "crime_rate": 2.9677364739743695,
-                "money_bond_rate": 79.07221221863364,
-                "EstPopulation": 472515
+                "money_bond_rate": 90.79625892122381,
+                "EstPopulation": 736223
             },
             {
+                "CrimeRate": 5.439262964458469,
                 "year": 2014,
-                "crime_rate": 3.0814034114547084,
-                "money_bond_rate": 82.18570777636891,
-                "EstPopulation": 72110
+                "money_bond_rate": 85.69353264452513,
+                "EstPopulation": 606755
             },
             {
+                "CrimeRate": 7.168754854773329,
                 "year": 2014,
-                "crime_rate": 5.379638273941689,
-                "money_bond_rate": 85.87815140945739,
-                "EstPopulation": 585913
+                "money_bond_rate": 74.9383892681795,
+                "EstPopulation": 852254
             },
             {
+                "CrimeRate": 4.103143800259468,
                 "year": 2014,
-                "crime_rate": 6.285675807910341,
-                "money_bond_rate": 94.04397876537533,
-                "EstPopulation": 1618744
+                "money_bond_rate": 83.75828755836494,
+                "EstPopulation": 365354
             },
             {
+                "CrimeRate": 6.3124342723373195,
+                "year": 2014,
+                "money_bond_rate": 96.58452026335232,
+                "EstPopulation": 891938
+            },
+            {
+                "CrimeRate": null,
                 "year": 2015,
-                "crime_rate": 3.9316865791981126,
-                "money_bond_rate": 66.15868266521521,
-                "EstPopulation": 68215
+                "money_bond_rate": null,
+                "EstPopulation": 0
             },
             {
+                "CrimeRate": null,
                 "year": 2015,
-                "crime_rate": 5.756773064516407,
-                "money_bond_rate": 62.64046834218663,
-                "EstPopulation": 565143
+                "money_bond_rate": null,
+                "EstPopulation": 0
             },
             {
+                "CrimeRate": null,
                 "year": 2015,
-                "crime_rate": 6.7282458015428865,
-                "money_bond_rate": 75.40625148482239,
-                "EstPopulation": 755992
+                "money_bond_rate": null,
+                "EstPopulation": 0
             },
             {
+                "CrimeRate": null,
                 "year": 2015,
-                "crime_rate": 5.324085216169127,
-                "money_bond_rate": 52.87377929684081,
-                "EstPopulation": 831016
+                "money_bond_rate": null,
+                "EstPopulation": 0
             },
             {
+                "CrimeRate": null,
                 "year": 2015,
-                "crime_rate": 4.403318442884496,
-                "money_bond_rate": 69.06776397871091,
-                "EstPopulation": 31340
+                "money_bond_rate": null,
+                "EstPopulation": 0
             },
             {
+                "CrimeRate": null,
                 "year": 2015,
-                "crime_rate": 4.867631518920756,
-                "money_bond_rate": 80.90405187727721,
-                "EstPopulation": 429634
+                "money_bond_rate": null,
+                "EstPopulation": 0
             },
             {
+                "CrimeRate": null,
                 "year": 2015,
-                "crime_rate": 5.463525326842989,
-                "money_bond_rate": 85.37924651009783,
-                "EstPopulation": 716552
+                "money_bond_rate": null,
+                "EstPopulation": 0
             },
             {
+                "CrimeRate": 5.432867387337104,
                 "year": 2015,
-                "crime_rate": 4.2744960736257775,
-                "money_bond_rate": 74.23708425522273,
-                "EstPopulation": 99965
+                "money_bond_rate": 57.247778336715115,
+                "EstPopulation": 1461972
             },
             {
+                "CrimeRate": 5.418937036308968,
                 "year": 2015,
-                "crime_rate": 3.1660190335748406,
-                "money_bond_rate": 71.15070522255249,
-                "EstPopulation": 336353
+                "money_bond_rate": 78.18664523224274,
+                "EstPopulation": 2263765
             },
             {
+                "CrimeRate": 6.255116298561059,
                 "year": 2015,
-                "crime_rate": 6.365133814064983,
-                "money_bond_rate": 92.64560794141464,
-                "EstPopulation": 1640971
+                "money_bond_rate": 92.28041155193328,
+                "EstPopulation": 1741982
             },
             {
+                "CrimeRate": 6.838185722978163,
                 "year": 2016,
-                "crime_rate": 6.832768614821905,
-                "money_bond_rate": 60.18824936848116,
-                "EstPopulation": 1280579
+                "money_bond_rate": 60.195673911224155,
+                "EstPopulation": 1278614
             },
             {
+                "CrimeRate": 0.17097496438021054,
                 "year": 2016,
-                "crime_rate": 0.17097496438021054,
                 "money_bond_rate": 66.22222222222223,
                 "EstPopulation": 24565
             },
             {
+                "CrimeRate": 4.902998236331568,
                 "year": 2016,
-                "crime_rate": 4.387575349898542,
-                "money_bond_rate": 73.87413016934273,
-                "EstPopulation": 672695
-            },
-            {
-                "year": 2016,
-                "crime_rate": 5.606814901009383,
-                "money_bond_rate": 50.413396974483106,
-                "EstPopulation": 546567
-            },
-            {
-                "year": 2016,
-                "crime_rate": 4.902998236331568,
                 "money_bond_rate": 69.8237885462555,
                 "EstPopulation": 11340
             },
             {
+                "CrimeRate": 5.603762252239585,
                 "year": 2016,
-                "crime_rate": 4.329166168201937,
+                "money_bond_rate": 50.37110628842577,
+                "EstPopulation": 547757
+            },
+            {
+                "CrimeRate": 4.928775683117981,
+                "year": 2016,
+                "money_bond_rate": 71.97845283763822,
+                "EstPopulation": 377680
+            },
+            {
+                "CrimeRate": 4.329166168201947,
+                "year": 2016,
                 "money_bond_rate": 67.55508182209307,
                 "EstPopulation": 66872
             },
             {
+                "CrimeRate": 5.294248512950217,
                 "year": 2016,
-                "crime_rate": 5.338693937463212,
-                "money_bond_rate": 78.2296646803993,
-                "EstPopulation": 247982
+                "money_bond_rate": 76.85339632931807,
+                "EstPopulation": 170808
             },
             {
+                "CrimeRate": 6.634202656702093,
                 "year": 2016,
-                "crime_rate": 5.17949118621045,
-                "money_bond_rate": 71.87098072320639,
-                "EstPopulation": 332774
+                "money_bond_rate": 86.49430073360023,
+                "EstPopulation": 2224412
             },
             {
+                "CrimeRate": 4.3957777694301425,
                 "year": 2016,
-                "crime_rate": 3.0708591279561825,
-                "money_bond_rate": 72.69088737203798,
-                "EstPopulation": 44906
+                "money_bond_rate": 73.85662145564179,
+                "EstPopulation": 665525
             },
             {
+                "CrimeRate": 4.988010628415884,
                 "year": 2016,
-                "crime_rate": 6.599334328015615,
-                "money_bond_rate": 86.49608892684955,
-                "EstPopulation": 2239241
+                "money_bond_rate": 81.17958314877383,
+                "EstPopulation": 92582
             }
         ]
     },
@@ -193,17 +199,701 @@
         },
         "size": {
             "field": "EstPopulation",
-            "type": "quantitative"
+            "type": "quantitative",
+            "legend": {
+                "title": "population"
+            }
         },
         "x": {
             "field": "money_bond_rate",
             "type": "quantitative",
             "axis": {
-                "title": "Money Bond Rate (%)"
+                "title": "Money Bond Rate (%, All Crime Types)"
             }
         },
         "y": {
-            "field": "crime_rate",
+            "field": "CrimeRate",
+            "type": "quantitative",
+            "axis": {
+                "title": "Crime Rate (%, All Crime Types)"
+            }
+        }
+    },
+    "background": "white",
+    "description": "Vega-lite"
+};
+vegaEmbed('#crimeRateVsMoneyBondRateMerged',vlSpec);</script></figure><div>Broken down by Colorado&#39;s crime categories:</div><figure id="crimeRateVsMoneyBondRateUnMerged"><script type="text/javascript">var vlSpec=
+{
+    "height": 400,
+    "autosize": {
+        "type": "fit"
+    },
+    "mark": "point",
+    "data": {
+        "values": [
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.2306693174460426,
+                "year": 2014,
+                "money_bond_rate": 74.54893261808341,
+                "EstPopulation": 1533637
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.8477215385791603,
+                "year": 2014,
+                "money_bond_rate": 70.28673913235721,
+                "EstPopulation": 536261
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.6733879794712294,
+                "year": 2014,
+                "money_bond_rate": 78.08752389003102,
+                "EstPopulation": 822260
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.8589186091144674,
+                "year": 2014,
+                "money_bond_rate": 56.0619426758865,
+                "EstPopulation": 760724
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.8222080472980453,
+                "year": 2014,
+                "money_bond_rate": 36.609938686057646,
+                "EstPopulation": 355871
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.7198493556411556,
+                "year": 2014,
+                "money_bond_rate": 85.22958647522346,
+                "EstPopulation": 1366397
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.8167560675558461,
+                "year": 2014,
+                "money_bond_rate": 88.45201839484646,
+                "EstPopulation": 1428211
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.72338581754684,
+                "year": 2014,
+                "money_bond_rate": 81.62657141792465,
+                "EstPopulation": 537749
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.5842672179305675,
+                "year": 2014,
+                "money_bond_rate": 86.83412883327401,
+                "EstPopulation": 91910
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.0576642531885172,
+                "year": 2014,
+                "money_bond_rate": 95.20542158106583,
+                "EstPopulation": 2642521
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.6600336324697516,
+                "year": 2014,
+                "money_bond_rate": 74.5489326180834,
+                "EstPopulation": 1533637
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 2.871176535306519,
+                "year": 2014,
+                "money_bond_rate": 70.28673913235718,
+                "EstPopulation": 536261
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 2.560139128742722,
+                "year": 2014,
+                "money_bond_rate": 78.087523890031,
+                "EstPopulation": 822260
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 3.611953875518581,
+                "year": 2014,
+                "money_bond_rate": 56.06194267588651,
+                "EstPopulation": 760724
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 3.337445310238829,
+                "year": 2014,
+                "money_bond_rate": 36.609938686057646,
+                "EstPopulation": 355871
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 3.6088340357890103,
+                "year": 2014,
+                "money_bond_rate": 85.22958647522346,
+                "EstPopulation": 1366397
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.048491434388901,
+                "year": 2014,
+                "money_bond_rate": 88.45201839484645,
+                "EstPopulation": 1428211
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 2.8061418989156595,
+                "year": 2014,
+                "money_bond_rate": 81.62657141792464,
+                "EstPopulation": 537749
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 2.7396366010227435,
+                "year": 2014,
+                "money_bond_rate": 86.83412883327402,
+                "EstPopulation": 91910
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.513114559922138,
+                "year": 2014,
+                "money_bond_rate": 95.20542158106585,
+                "EstPopulation": 2642521
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.5350027418483005,
+                "year": 2014,
+                "money_bond_rate": 74.54893261808341,
+                "EstPopulation": 1533637
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.4945353102313921,
+                "year": 2014,
+                "money_bond_rate": 70.28673913235721,
+                "EstPopulation": 536261
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.393914333665768,
+                "year": 2014,
+                "money_bond_rate": 78.08752389003098,
+                "EstPopulation": 822260
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.6818504477313581,
+                "year": 2014,
+                "money_bond_rate": 56.06194267588651,
+                "EstPopulation": 760724
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.5167602867331089,
+                "year": 2014,
+                "money_bond_rate": 36.60993868605765,
+                "EstPopulation": 355871
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.49370717295191824,
+                "year": 2014,
+                "money_bond_rate": 85.22958647522346,
+                "EstPopulation": 1366397
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.469888552881903,
+                "year": 2014,
+                "money_bond_rate": 88.45201839484648,
+                "EstPopulation": 1428211
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.420828304655152,
+                "year": 2014,
+                "money_bond_rate": 81.62657141792464,
+                "EstPopulation": 537749
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.2872375149602924,
+                "year": 2014,
+                "money_bond_rate": 86.83412883327402,
+                "EstPopulation": 91910
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.6381406240480225,
+                "year": 2014,
+                "money_bond_rate": 95.20542158106585,
+                "EstPopulation": 2642521
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.5733993662875081,
+                "year": 2015,
+                "money_bond_rate": 69.91600261592693,
+                "EstPopulation": 470876
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.1161587803923623,
+                "year": 2015,
+                "money_bond_rate": 63.50348229787587,
+                "EstPopulation": 293865
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.755959310804355,
+                "year": 2015,
+                "money_bond_rate": 77.9297707366897,
+                "EstPopulation": 1217129
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.1005180793676184,
+                "year": 2015,
+                "money_bond_rate": 58.698277268454454,
+                "EstPopulation": 748920
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.8271690369380469,
+                "year": 2015,
+                "money_bond_rate": 44.21904156072703,
+                "EstPopulation": 838160
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.0437579447834522,
+                "year": 2015,
+                "money_bond_rate": 88.92237726895766,
+                "EstPopulation": 2210570
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.0301529852014601,
+                "year": 2015,
+                "money_bond_rate": 94.85839652329776,
+                "EstPopulation": 1824098
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.122066482748374,
+                "year": 2015,
+                "money_bond_rate": 74.50445352246221,
+                "EstPopulation": 1535827
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.8529908281528331,
+                "year": 2015,
+                "money_bond_rate": 83.34583742877764,
+                "EstPopulation": 774217
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.8547443686431566,
+                "year": 2015,
+                "money_bond_rate": 84.91605790039618,
+                "EstPopulation": 353556
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 2.6161877012206958,
+                "year": 2015,
+                "money_bond_rate": 69.91600261592691,
+                "EstPopulation": 470876
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 5.174144590202989,
+                "year": 2015,
+                "money_bond_rate": 63.50348229787588,
+                "EstPopulation": 293865
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 3.311399202549603,
+                "year": 2015,
+                "money_bond_rate": 77.92977073668969,
+                "EstPopulation": 1217129
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.189900122843559,
+                "year": 2015,
+                "money_bond_rate": 58.698277268454454,
+                "EstPopulation": 748920
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 3.7976042760332174,
+                "year": 2015,
+                "money_bond_rate": 44.219041560727035,
+                "EstPopulation": 838160
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.575742907937775,
+                "year": 2015,
+                "money_bond_rate": 88.92237726895766,
+                "EstPopulation": 2210570
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.496140010021399,
+                "year": 2015,
+                "money_bond_rate": 94.85839652329776,
+                "EstPopulation": 1824098
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 3.6052237654371044,
+                "year": 2015,
+                "money_bond_rate": 74.50445352246223,
+                "EstPopulation": 1535827
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.159686496163218,
+                "year": 2015,
+                "money_bond_rate": 83.34583742877761,
+                "EstPopulation": 774217
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 3.574822658928145,
+                "year": 2015,
+                "money_bond_rate": 84.91605790039617,
+                "EstPopulation": 353556
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.3674003346953336,
+                "year": 2015,
+                "money_bond_rate": 69.91600261592693,
+                "EstPopulation": 470876
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.46960338931140155,
+                "year": 2015,
+                "money_bond_rate": 63.50348229787588,
+                "EstPopulation": 293865
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.5219660364677914,
+                "year": 2015,
+                "money_bond_rate": 77.92977073668968,
+                "EstPopulation": 1217129
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.6267692143353099,
+                "year": 2015,
+                "money_bond_rate": 58.698277268454454,
+                "EstPopulation": 748920
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.6793452324138527,
+                "year": 2015,
+                "money_bond_rate": 44.21904156072704,
+                "EstPopulation": 838160
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.6199758433345082,
+                "year": 2015,
+                "money_bond_rate": 88.92237726895766,
+                "EstPopulation": 2210570
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.6123574500931372,
+                "year": 2015,
+                "money_bond_rate": 94.85839652329777,
+                "EstPopulation": 1824098
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.5514944065965643,
+                "year": 2015,
+                "money_bond_rate": 74.50445352246223,
+                "EstPopulation": 1535827
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.5618579803853274,
+                "year": 2015,
+                "money_bond_rate": 83.34583742877763,
+                "EstPopulation": 774217
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.49695097806287114,
+                "year": 2015,
+                "money_bond_rate": 84.91605790039617,
+                "EstPopulation": 353556
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.6847921002698376,
+                "year": 2016,
+                "money_bond_rate": 65.65644370288756,
+                "EstPopulation": 456927
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.1008010228296339,
+                "year": 2016,
+                "money_bond_rate": 70.25442000667908,
+                "EstPopulation": 412972
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.4649486746567297,
+                "year": 2016,
+                "money_bond_rate": 60.95862795985525,
+                "EstPopulation": 853477
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.8147891635801652,
+                "year": 2016,
+                "money_bond_rate": 38.683799375927784,
+                "EstPopulation": 398508
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.1623596662568625,
+                "year": 2016,
+                "money_bond_rate": 50.944112241028435,
+                "EstPopulation": 801215
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.051133315095909,
+                "year": 2016,
+                "money_bond_rate": 86.2534248147476,
+                "EstPopulation": 2646572
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.9403129507568164,
+                "year": 2016,
+                "money_bond_rate": 94.57321190213669,
+                "EstPopulation": 821535
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.8392673225130598,
+                "year": 2016,
+                "money_bond_rate": 76.43534119373548,
+                "EstPopulation": 901024
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.7513292286272955,
+                "year": 2016,
+                "money_bond_rate": 73.50127872231378,
+                "EstPopulation": 1416423
+            },
+            {
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.1480785584703446,
+                "year": 2016,
+                "money_bond_rate": 82.27638378690098,
+                "EstPopulation": 1543971
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 3.4368728483981092,
+                "year": 2016,
+                "money_bond_rate": 65.65644370288754,
+                "EstPopulation": 456927
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.655037145375463,
+                "year": 2016,
+                "money_bond_rate": 70.25442000667907,
+                "EstPopulation": 412972
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.525605259427035,
+                "year": 2016,
+                "money_bond_rate": 60.95862795985525,
+                "EstPopulation": 853477
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 3.4955383580756227,
+                "year": 2016,
+                "money_bond_rate": 38.6837993759278,
+                "EstPopulation": 398508
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.6143669302247226,
+                "year": 2016,
+                "money_bond_rate": 50.944112241028435,
+                "EstPopulation": 801215
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.693769903104849,
+                "year": 2016,
+                "money_bond_rate": 86.25342481474758,
+                "EstPopulation": 2646572
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.567790781890002,
+                "year": 2016,
+                "money_bond_rate": 94.5732119021367,
+                "EstPopulation": 821535
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 3.740521895088267,
+                "year": 2016,
+                "money_bond_rate": 76.43534119373547,
+                "EstPopulation": 901024
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 3.081353522217578,
+                "year": 2016,
+                "money_bond_rate": 73.50127872231378,
+                "EstPopulation": 1416423
+            },
+            {
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.906309768771555,
+                "year": 2016,
+                "money_bond_rate": 82.27638378690096,
+                "EstPopulation": 1543971
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.4685650005361808,
+                "year": 2016,
+                "money_bond_rate": 65.65644370288757,
+                "EstPopulation": 456927
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.4673440330095091,
+                "year": 2016,
+                "money_bond_rate": 70.25442000667907,
+                "EstPopulation": 412972
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.8471230039005295,
+                "year": 2016,
+                "money_bond_rate": 60.958627959855264,
+                "EstPopulation": 853477
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.7417667901271741,
+                "year": 2016,
+                "money_bond_rate": 38.6837993759278,
+                "EstPopulation": 398508
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.8052769855781516,
+                "year": 2016,
+                "money_bond_rate": 50.94411224102843,
+                "EstPopulation": 801215
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.6563962741236495,
+                "year": 2016,
+                "money_bond_rate": 86.25342481474759,
+                "EstPopulation": 2646572
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.5084384718849422,
+                "year": 2016,
+                "money_bond_rate": 94.57321190213669,
+                "EstPopulation": 821535
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.6646881770074664,
+                "year": 2016,
+                "money_bond_rate": 76.43534119373548,
+                "EstPopulation": 901024
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.4776115609532061,
+                "year": 2016,
+                "money_bond_rate": 73.50127872231378,
+                "EstPopulation": 1416423
+            },
+            {
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.745415555084894,
+                "year": 2016,
+                "money_bond_rate": 82.27638378690098,
+                "EstPopulation": 1543971
+            }
+        ]
+    },
+    "width": 800,
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+    "title": "Crime rate vs. Money Bond rate",
+    "encoding": {
+        "color": {
+            "field": "year",
+            "type": "nominal"
+        },
+        "size": {
+            "field": "EstPopulation",
+            "type": "quantitative",
+            "legend": {
+                "title": "population"
+            }
+        },
+        "row": {
+            "field": "CrimeAgainst",
+            "header": {
+                "title": "Crime Against"
+            },
+            "type": "nominal"
+        },
+        "x": {
+            "field": "money_bond_rate",
+            "type": "quantitative",
+            "axis": {
+                "title": "Money Bond Rate (%, All Crime Types)"
+            }
+        },
+        "y": {
+            "field": "CrimeRate",
             "type": "quantitative",
             "axis": {
                 "title": "Crime Rate (%)"
@@ -213,7 +903,7 @@
     "background": "white",
     "description": "Vega-lite"
 };
-vegaEmbed('#crimeRateVsMoneyBondRate',vlSpec);</script></figure><section><p>Notes:</p><ul><li><span>Money Bond Rate is (number of money bonds/total number of bonds). That data comes from </span><a href="https://github.com/Data4Democracy/incarceration-trends/blob/master/Colorado_ACLU/4-money-bail-analysis/complete-county-bond.csv">complete-county-bond.csv.</a></li><li><span>Crime Rate is crimes/estimated_population. Those numbers come from the Colorado crime statistics </span><a href="https://coloradocrimestats.state.co.us/">web-site</a><span>.  We also have some of that data in the </span><a href="https://github.com/Data4Democracy/incarceration-trends/blob/master/Colorado_ACLU/4-money-bail-analysis/crime-rate-bycounty.csv">repo</a><span>, but only for 2016, so I re-downloaded it for this. Also, there are some crimes in that data that don&#39;t roll up to a particular county but instead are attributed to the Colorado Bureau of Investigation or the Colorado State Patrol.  I&#39;ve ignored those.</span></li></ul></section><section><p>Below I look at the percentage of all bonds which are &quot;posted&quot; (posting bond means paying the money bond or agreeing to the terms of the personal recognizance bond ?) rather than the % of money bonds. I use the same clustering technique.</p></section><figure id="crimeRateVsPostedBondRate"><script type="text/javascript">var vlSpec=
+vegaEmbed('#crimeRateVsMoneyBondRateUnMerged',vlSpec);</script></figure><section><p>Notes:</p><ul><li><span>Money Bond Rate is (number of money bonds/total number of bonds). That data comes from </span><a href="https://github.com/Data4Democracy/incarceration-trends/blob/master/Colorado_ACLU/4-money-bail-analysis/complete-county-bond.csv">complete-county-bond.csv</a><span>. NB: Bond rates are not broken down by crime type because they are not broken down in the data we have.</span></li><li><span>Crime Rate is crimes/estimated_population. Those numbers come from the Colorado crime statistics </span><a href="https://coloradocrimestats.state.co.us/">web-site</a><span>.  We also have some of that data in the </span><a href="https://github.com/Data4Democracy/incarceration-trends/blob/master/Colorado_ACLU/4-money-bail-analysis/crime-rate-bycounty.csv">repo</a><span>, but only for 2016, so I re-downloaded it for this. Also, there are some crimes in that data that don&#39;t roll up to a particular county but instead are attributed to the Colorado Bureau of Investigation or the Colorado State Patrol.  I&#39;ve ignored those.</span></li></ul></section><section><p>Below I look at the percentage of all bonds which are &quot;posted&quot; (posting bond means paying the money bond or agreeing to the terms of the personal recognizance bond ?) rather than the % of money bonds. I use the same clustering technique.</p></section><figure id="crimeRateVsPostedBondRate"><script type="text/javascript">var vlSpec=
 {
     "height": 400,
     "autosize": {
@@ -224,177 +914,183 @@ vegaEmbed('#crimeRateVsMoneyBondRate',vlSpec);</script></figure><section><p>Note
         "values": [
             {
                 "posted_bond_rate": null,
+                "CrimeRate": null,
                 "year": 2014,
-                "crime_rate": null,
                 "EstPopulation": 0
             },
             {
                 "posted_bond_rate": null,
+                "CrimeRate": null,
                 "year": 2014,
-                "crime_rate": null,
                 "EstPopulation": 0
             },
             {
                 "posted_bond_rate": null,
+                "CrimeRate": null,
                 "year": 2014,
-                "crime_rate": null,
                 "EstPopulation": 0
             },
             {
                 "posted_bond_rate": null,
+                "CrimeRate": null,
                 "year": 2014,
-                "crime_rate": null,
                 "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": 75.81159569772635,
+                "CrimeRate": 4.163341223444772,
+                "year": 2014,
+                "EstPopulation": 879582
+            },
+            {
+                "posted_bond_rate": 56.760850668700954,
+                "CrimeRate": 5.959317715706192,
+                "year": 2014,
+                "EstPopulation": 1227758
+            },
+            {
+                "posted_bond_rate": 61.965595727110276,
+                "CrimeRate": 4.874330800843884,
+                "year": 2014,
+                "EstPopulation": 328004
+            },
+            {
+                "posted_bond_rate": 63.87843379631721,
+                "CrimeRate": 6.7121726093835266,
+                "year": 2014,
+                "EstPopulation": 723715
+            },
+            {
+                "posted_bond_rate": 67.33502640843096,
+                "CrimeRate": 5.205450660314559,
+                "year": 2014,
+                "EstPopulation": 1684273
+            },
+            {
+                "posted_bond_rate": 65.39418505165119,
+                "CrimeRate": 5.755628630592757,
+                "year": 2014,
+                "EstPopulation": 515756
             },
             {
                 "posted_bond_rate": null,
-                "year": 2014,
-                "crime_rate": null,
-                "EstPopulation": 0
-            },
-            {
-                "posted_bond_rate": null,
-                "year": 2014,
-                "crime_rate": null,
-                "EstPopulation": 0
-            },
-            {
-                "posted_bond_rate": 56.714660376576035,
-                "year": 2014,
-                "crime_rate": 5.9169486778631875,
-                "EstPopulation": 1239017
-            },
-            {
-                "posted_bond_rate": 75.64310310968064,
-                "year": 2014,
-                "crime_rate": 4.174369385674137,
-                "EstPopulation": 875773
-            },
-            {
-                "posted_bond_rate": 65.71674201372373,
-                "year": 2014,
-                "crime_rate": 5.5913371970132575,
-                "EstPopulation": 3254928
-            },
-            {
-                "posted_bond_rate": 73.25780708604694,
+                "CrimeRate": null,
                 "year": 2015,
-                "crime_rate": 3.672459114951432,
-                "EstPopulation": 156353
+                "EstPopulation": 0
             },
             {
-                "posted_bond_rate": 70.24302456473343,
+                "posted_bond_rate": null,
+                "CrimeRate": null,
                 "year": 2015,
-                "crime_rate": 6.411614130319454,
-                "EstPopulation": 518403
+                "EstPopulation": 0
             },
             {
-                "posted_bond_rate": 77.52190354169845,
+                "posted_bond_rate": null,
+                "CrimeRate": null,
                 "year": 2015,
-                "crime_rate": 4.494333569075259,
-                "EstPopulation": 231892
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeRate": null,
+                "year": 2015,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": 72.42004640738483,
+                "CrimeRate": 4.61704581652379,
+                "year": 2015,
+                "EstPopulation": 1779991
+            },
+            {
+                "posted_bond_rate": 55.21248179692064,
+                "CrimeRate": 6.161542315267965,
+                "year": 2015,
+                "EstPopulation": 1225586
+            },
+            {
+                "posted_bond_rate": 60.5099452105627,
+                "CrimeRate": 3.955722639933168,
+                "year": 2015,
+                "EstPopulation": 95760
             },
             {
                 "posted_bond_rate": 66.83302198319029,
+                "CrimeRate": 2.1623166317393805,
                 "year": 2015,
-                "crime_rate": 2.1623166317393694,
                 "EstPopulation": 20996
             },
             {
-                "posted_bond_rate": 63.1765681209555,
+                "posted_bond_rate": 65.57674740324126,
+                "CrimeRate": 6.576057450884032,
                 "year": 2015,
-                "crime_rate": 4.873652807418605,
-                "EstPopulation": 355647
+                "EstPopulation": 2022458
             },
             {
-                "posted_bond_rate": 82.91960840745517,
+                "posted_bond_rate": 63.464581588010795,
+                "CrimeRate": 4.99306346925631,
                 "year": 2015,
-                "crime_rate": 3.582342780633885,
-                "EstPopulation": 97841
-            },
-            {
-                "posted_bond_rate": 55.223477660812506,
-                "year": 2015,
-                "crime_rate": 6.114524243093856,
-                "EstPopulation": 1239982
-            },
-            {
-                "posted_bond_rate": 70.83514897557278,
-                "year": 2015,
-                "crime_rate": 3.7726224015396603,
-                "EstPopulation": 776277
-            },
-            {
-                "posted_bond_rate": 64.95263160092884,
-                "year": 2015,
-                "crime_rate": 4.827630997040333,
-                "EstPopulation": 323347
-            },
-            {
-                "posted_bond_rate": 65.69878213042628,
-                "year": 2015,
-                "crime_rate": 6.824388139141591,
-                "EstPopulation": 1754443
+                "EstPopulation": 322928
             },
             {
                 "posted_bond_rate": null,
+                "CrimeRate": null,
                 "year": 2016,
-                "crime_rate": null,
                 "EstPopulation": 0
             },
             {
                 "posted_bond_rate": null,
+                "CrimeRate": null,
                 "year": 2016,
-                "crime_rate": null,
                 "EstPopulation": 0
             },
             {
-                "posted_bond_rate": 80.22020957235021,
+                "posted_bond_rate": null,
+                "CrimeRate": null,
                 "year": 2016,
-                "crime_rate": 3.617747781028169,
-                "EstPopulation": 200318
+                "EstPopulation": 0
             },
             {
-                "posted_bond_rate": 64.49082814937815,
+                "posted_bond_rate": null,
+                "CrimeRate": null,
                 "year": 2016,
-                "crime_rate": 5.8731405120018065,
-                "EstPopulation": 230507
+                "EstPopulation": 0
             },
             {
-                "posted_bond_rate": 52.043620173922235,
+                "posted_bond_rate": null,
+                "CrimeRate": null,
                 "year": 2016,
-                "crime_rate": 6.358480796858068,
-                "EstPopulation": 1234147
+                "EstPopulation": 0
             },
             {
-                "posted_bond_rate": 72.25550925878521,
+                "posted_bond_rate": null,
+                "CrimeRate": null,
                 "year": 2016,
-                "crime_rate": 4.053351153794482,
-                "EstPopulation": 290303
+                "EstPopulation": 0
             },
             {
-                "posted_bond_rate": 57.19542499545065,
+                "posted_bond_rate": null,
+                "CrimeRate": null,
                 "year": 2016,
-                "crime_rate": 5.1777851507363915,
-                "EstPopulation": 355654
+                "EstPopulation": 0
             },
             {
-                "posted_bond_rate": 67.96135184676491,
+                "posted_bond_rate": null,
+                "CrimeRate": null,
                 "year": 2016,
-                "crime_rate": 5.733448877260794,
-                "EstPopulation": 2110597
+                "EstPopulation": 0
             },
             {
-                "posted_bond_rate": 63.13957535676992,
+                "posted_bond_rate": null,
+                "CrimeRate": null,
                 "year": 2016,
-                "crime_rate": 9.720169505037934,
-                "EstPopulation": 163063
+                "EstPopulation": 0
             },
             {
-                "posted_bond_rate": 62.597438911581996,
+                "posted_bond_rate": 63.18616948075356,
+                "CrimeRate": 6.057062482658493,
                 "year": 2016,
-                "crime_rate": 7.303053915816848,
-                "EstPopulation": 882932
+                "EstPopulation": 5460155
             }
         ]
     },
@@ -408,7 +1104,10 @@ vegaEmbed('#crimeRateVsMoneyBondRate',vlSpec);</script></figure><section><p>Note
         },
         "size": {
             "field": "EstPopulation",
-            "type": "quantitative"
+            "type": "quantitative",
+            "legend": {
+                "title": "population"
+            }
         },
         "x": {
             "field": "posted_bond_rate",
@@ -418,7 +1117,688 @@ vegaEmbed('#crimeRateVsMoneyBondRate',vlSpec);</script></figure><section><p>Note
             }
         },
         "y": {
-            "field": "crime_rate",
+            "field": "CrimeRate",
+            "type": "quantitative",
+            "axis": {
+                "title": "Crime Rate (%, All Crime Types)"
+            }
+        }
+    },
+    "background": "white",
+    "description": "Vega-lite"
+};
+vegaEmbed('#crimeRateVsPostedBondRate',vlSpec);</script></figure><div>Broken down by Colorado&#39;s crime categories:</div><figure id="crimeRateVsPostedBondRateUnMerged"><script type="text/javascript">var vlSpec=
+{
+    "height": 400,
+    "autosize": {
+        "type": "fit"
+    },
+    "mark": "point",
+    "data": {
+        "values": [
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Person",
+                "CrimeRate": null,
+                "year": 2014,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Person",
+                "CrimeRate": null,
+                "year": 2014,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Person",
+                "CrimeRate": null,
+                "year": 2014,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Person",
+                "CrimeRate": null,
+                "year": 2014,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Person",
+                "CrimeRate": null,
+                "year": 2014,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Person",
+                "CrimeRate": null,
+                "year": 2014,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Person",
+                "CrimeRate": null,
+                "year": 2014,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Person",
+                "CrimeRate": null,
+                "year": 2014,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Person",
+                "CrimeRate": null,
+                "year": 2014,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": 64.9882503519562,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.9162256477037389,
+                "year": 2014,
+                "EstPopulation": 10068917
+            },
+            {
+                "posted_bond_rate": 65.25897904415994,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 2.185472882481032,
+                "year": 2014,
+                "EstPopulation": 429335
+            },
+            {
+                "posted_bond_rate": 66.66666666666666,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 0.8240365111561787,
+                "year": 2014,
+                "EstPopulation": 7888
+            },
+            {
+                "posted_bond_rate": 75.2076387338942,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 2.9927289837700877,
+                "year": 2014,
+                "EstPopulation": 694951
+            },
+            {
+                "posted_bond_rate": 69.96889093117713,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.218022554455414,
+                "year": 2014,
+                "EstPopulation": 1732518
+            },
+            {
+                "posted_bond_rate": 67.89771975300324,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 3.2750180300281873,
+                "year": 2014,
+                "EstPopulation": 915140
+            },
+            {
+                "posted_bond_rate": 54.96163625315192,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.814874999733886,
+                "year": 2014,
+                "EstPopulation": 1409237
+            },
+            {
+                "posted_bond_rate": 60.987666976774044,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.086152402263455,
+                "year": 2014,
+                "EstPopulation": 3349924
+            },
+            {
+                "posted_bond_rate": 82.06224356922479,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 2.8800262077301686,
+                "year": 2014,
+                "EstPopulation": 531141
+            },
+            {
+                "posted_bond_rate": 67.28546409807356,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 1.9360662769778436,
+                "year": 2014,
+                "EstPopulation": 312386
+            },
+            {
+                "posted_bond_rate": 63.85500309343548,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.637840783103653,
+                "year": 2014,
+                "EstPopulation": 686397
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Society",
+                "CrimeRate": null,
+                "year": 2014,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Society",
+                "CrimeRate": null,
+                "year": 2014,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Society",
+                "CrimeRate": null,
+                "year": 2014,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Society",
+                "CrimeRate": null,
+                "year": 2014,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Society",
+                "CrimeRate": null,
+                "year": 2014,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Society",
+                "CrimeRate": null,
+                "year": 2014,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Society",
+                "CrimeRate": null,
+                "year": 2014,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Society",
+                "CrimeRate": null,
+                "year": 2014,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Society",
+                "CrimeRate": null,
+                "year": 2014,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": 64.98825035195614,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.5359066918518063,
+                "year": 2014,
+                "EstPopulation": 10068917
+            },
+            {
+                "posted_bond_rate": 67.41955915669524,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.1960799182391901,
+                "year": 2015,
+                "EstPopulation": 883553
+            },
+            {
+                "posted_bond_rate": 72.786606314986,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.8131062687403046,
+                "year": 2015,
+                "EstPopulation": 1449749
+            },
+            {
+                "posted_bond_rate": 77.31953081764915,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.7494727898896825,
+                "year": 2015,
+                "EstPopulation": 527304
+            },
+            {
+                "posted_bond_rate": 69.85809330607209,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.7279131136930017,
+                "year": 2015,
+                "EstPopulation": 923874
+            },
+            {
+                "posted_bond_rate": 65.5176706558312,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.2880396547237827,
+                "year": 2015,
+                "EstPopulation": 1245148
+            },
+            {
+                "posted_bond_rate": 54.659438421403095,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.9613663373547854,
+                "year": 2015,
+                "EstPopulation": 1949621
+            },
+            {
+                "posted_bond_rate": 60.96207100380554,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.0004605801070765,
+                "year": 2015,
+                "EstPopulation": 1786877
+            },
+            {
+                "posted_bond_rate": 83.93620035839392,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.7205144070986269,
+                "year": 2015,
+                "EstPopulation": 313526
+            },
+            {
+                "posted_bond_rate": 66.24798775393427,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.879081678154181,
+                "year": 2015,
+                "EstPopulation": 313964
+            },
+            {
+                "posted_bond_rate": 63.441417119452815,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.9637809013982479,
+                "year": 2015,
+                "EstPopulation": 866587
+            },
+            {
+                "posted_bond_rate": 67.41955915669526,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.608778420762549,
+                "year": 2015,
+                "EstPopulation": 883553
+            },
+            {
+                "posted_bond_rate": 72.78660631498597,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 3.5570985046377013,
+                "year": 2015,
+                "EstPopulation": 1449749
+            },
+            {
+                "posted_bond_rate": 77.31953081764912,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 2.988408963330458,
+                "year": 2015,
+                "EstPopulation": 527304
+            },
+            {
+                "posted_bond_rate": 69.85809330607209,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 3.2870283177143245,
+                "year": 2015,
+                "EstPopulation": 923874
+            },
+            {
+                "posted_bond_rate": 65.5176706558312,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.781841194781666,
+                "year": 2015,
+                "EstPopulation": 1245148
+            },
+            {
+                "posted_bond_rate": 54.659438421403095,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.686398023000371,
+                "year": 2015,
+                "EstPopulation": 1949621
+            },
+            {
+                "posted_bond_rate": 60.96207100380553,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.346521892665267,
+                "year": 2015,
+                "EstPopulation": 1786877
+            },
+            {
+                "posted_bond_rate": 83.9362003583939,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 2.414791755707646,
+                "year": 2015,
+                "EstPopulation": 313526
+            },
+            {
+                "posted_bond_rate": 66.24798775393428,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 3.4261889898205,
+                "year": 2015,
+                "EstPopulation": 313964
+            },
+            {
+                "posted_bond_rate": 63.4414171194528,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 3.349807924651549,
+                "year": 2015,
+                "EstPopulation": 866587
+            },
+            {
+                "posted_bond_rate": 67.41955915669523,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.7730153143048701,
+                "year": 2015,
+                "EstPopulation": 883553
+            },
+            {
+                "posted_bond_rate": 72.78660631498597,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.4546993996891846,
+                "year": 2015,
+                "EstPopulation": 1449749
+            },
+            {
+                "posted_bond_rate": 77.31953081764917,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.4579900778298729,
+                "year": 2015,
+                "EstPopulation": 527304
+            },
+            {
+                "posted_bond_rate": 69.8580933060721,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.5387098240669075,
+                "year": 2015,
+                "EstPopulation": 923874
+            },
+            {
+                "posted_bond_rate": 65.5176706558312,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.6640977618724841,
+                "year": 2015,
+                "EstPopulation": 1245148
+            },
+            {
+                "posted_bond_rate": 54.659438421403095,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.5200497942933535,
+                "year": 2015,
+                "EstPopulation": 1949621
+            },
+            {
+                "posted_bond_rate": 60.96207100380554,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.6848260960323427,
+                "year": 2015,
+                "EstPopulation": 1786877
+            },
+            {
+                "posted_bond_rate": 83.93620035839393,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.38051070724598457,
+                "year": 2015,
+                "EstPopulation": 313526
+            },
+            {
+                "posted_bond_rate": 66.24798775393428,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.505790472793044,
+                "year": 2015,
+                "EstPopulation": 313964
+            },
+            {
+                "posted_bond_rate": 63.4414171194528,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.5835536420463194,
+                "year": 2015,
+                "EstPopulation": 866587
+            },
+            {
+                "posted_bond_rate": 68.38420731842345,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.3020434422964855,
+                "year": 2016,
+                "EstPopulation": 1175076
+            },
+            {
+                "posted_bond_rate": 63.39977485711028,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.1946057106568708,
+                "year": 2016,
+                "EstPopulation": 1209353
+            },
+            {
+                "posted_bond_rate": 72.80657925856808,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.7572903095638739,
+                "year": 2016,
+                "EstPopulation": 1159793
+            },
+            {
+                "posted_bond_rate": 69.91979302826358,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.8503474977755499,
+                "year": 2016,
+                "EstPopulation": 415830
+            },
+            {
+                "posted_bond_rate": 66.18937758423793,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.7723735382727859,
+                "year": 2016,
+                "EstPopulation": 753133
+            },
+            {
+                "posted_bond_rate": 49.70902635304289,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.9247046144045701,
+                "year": 2016,
+                "EstPopulation": 1579207
+            },
+            {
+                "posted_bond_rate": 56.685667506869265,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.04016184380884,
+                "year": 2016,
+                "EstPopulation": 1414203
+            },
+            {
+                "posted_bond_rate": 80.50688894004813,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 0.7150776743780618,
+                "year": 2016,
+                "EstPopulation": 561897
+            },
+            {
+                "posted_bond_rate": 67.2754339903349,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.1274148441979381,
+                "year": 2016,
+                "EstPopulation": 512766
+            },
+            {
+                "posted_bond_rate": 61.69849858095451,
+                "CrimeAgainst": "Person",
+                "CrimeRate": 1.1720266234111154,
+                "year": 2016,
+                "EstPopulation": 1468482
+            },
+            {
+                "posted_bond_rate": null,
+                "CrimeAgainst": "Property",
+                "CrimeRate": null,
+                "year": 2016,
+                "EstPopulation": 0
+            },
+            {
+                "posted_bond_rate": 63.39977485711028,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.806123604935875,
+                "year": 2016,
+                "EstPopulation": 1209353
+            },
+            {
+                "posted_bond_rate": 72.76178520891675,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 3.0632600654342146,
+                "year": 2016,
+                "EstPopulation": 1193565
+            },
+            {
+                "posted_bond_rate": 68.73600414265043,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.534858970968603,
+                "year": 2016,
+                "EstPopulation": 1550390
+            },
+            {
+                "posted_bond_rate": 66.18937758423795,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 3.2210778175966293,
+                "year": 2016,
+                "EstPopulation": 753133
+            },
+            {
+                "posted_bond_rate": 49.709026353042894,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.590025246848583,
+                "year": 2016,
+                "EstPopulation": 1579207
+            },
+            {
+                "posted_bond_rate": 56.68566750686925,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 5.13808837910823,
+                "year": 2016,
+                "EstPopulation": 1414203
+            },
+            {
+                "posted_bond_rate": 80.50688894004811,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 2.496187023600438,
+                "year": 2016,
+                "EstPopulation": 561897
+            },
+            {
+                "posted_bond_rate": 67.28450053273774,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.942734499817137,
+                "year": 2016,
+                "EstPopulation": 519510
+            },
+            {
+                "posted_bond_rate": 61.69849858095452,
+                "CrimeAgainst": "Property",
+                "CrimeRate": 4.439414306746691,
+                "year": 2016,
+                "EstPopulation": 1468482
+            },
+            {
+                "posted_bond_rate": 68.38420731842345,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.8061606228022655,
+                "year": 2016,
+                "EstPopulation": 1175076
+            },
+            {
+                "posted_bond_rate": 63.399774857110266,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.8336689122199981,
+                "year": 2016,
+                "EstPopulation": 1209353
+            },
+            {
+                "posted_bond_rate": 72.80657925856805,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.4743949997973562,
+                "year": 2016,
+                "EstPopulation": 1159793
+            },
+            {
+                "posted_bond_rate": 69.91979302826358,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.7661784864006926,
+                "year": 2016,
+                "EstPopulation": 415830
+            },
+            {
+                "posted_bond_rate": 66.18937758423795,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.4971233500590255,
+                "year": 2016,
+                "EstPopulation": 753133
+            },
+            {
+                "posted_bond_rate": 49.709026353042916,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.578138268130779,
+                "year": 2016,
+                "EstPopulation": 1579207
+            },
+            {
+                "posted_bond_rate": 56.685667506869265,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.5907921281456896,
+                "year": 2016,
+                "EstPopulation": 1414203
+            },
+            {
+                "posted_bond_rate": 80.50688894004814,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.40950565673071315,
+                "year": 2016,
+                "EstPopulation": 561897
+            },
+            {
+                "posted_bond_rate": 67.2754339903349,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.5981285810681691,
+                "year": 2016,
+                "EstPopulation": 512766
+            },
+            {
+                "posted_bond_rate": 61.69849858095452,
+                "CrimeAgainst": "Society",
+                "CrimeRate": 0.7953110763359694,
+                "year": 2016,
+                "EstPopulation": 1468482
+            }
+        ]
+    },
+    "width": 800,
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+    "title": "Crime rate vs. Posted Bond rate",
+    "encoding": {
+        "color": {
+            "field": "year",
+            "type": "nominal"
+        },
+        "size": {
+            "field": "EstPopulation",
+            "type": "quantitative",
+            "legend": {
+                "title": "population"
+            }
+        },
+        "row": {
+            "field": "CrimeAgainst",
+            "header": {
+                "title": "Crime Against"
+            },
+            "type": "nominal"
+        },
+        "x": {
+            "field": "posted_bond_rate",
+            "type": "quantitative",
+            "axis": {
+                "title": "Posted Bond Rate (%)"
+            }
+        },
+        "y": {
+            "field": "CrimeRate",
             "type": "quantitative",
             "axis": {
                 "title": "Crime Rate (%)"
@@ -428,4 +1808,228 @@ vegaEmbed('#crimeRateVsMoneyBondRate',vlSpec);</script></figure><section><p>Note
     "background": "white",
     "description": "Vega-lite"
 };
-vegaEmbed('#crimeRateVsPostedBondRate',vlSpec);</script></figure><section><p>Notes:</p><ul><li><span>Posted Bond Rate is [(number of posted money bonds + number of posted PR bonds)/total number of bonds] where that data comes from </span><a href="https://github.com/Data4Democracy/incarceration-trends/blob/master/Colorado_ACLU/4-money-bail-analysis/complete-county-bond.csv">complete-county-bond.csv.</a></li><li><span>Crime Rate, as above, is crimes/estimated_population where those numbers come from the Colorado crime statistics </span><a href="https://coloradocrimestats.state.co.us/">web-site.</a></li></ul></section><section><h3>Some notes on weighted k-means</h3><ul><li>k-means works by choosing random starting locations for cluster centers, assigning each data-point to the nearest cluster center, moving the center of each cluster to the weighted average of the data-points assigned to the same cluster and then repeating until no data-points move to a new cluster.</li><li>How do you define distance between points?  Each axis has a different sort of data and it&#39;s not clear how to combine differences in each into a meanignful overall distance.  Here, before we hand the data off to the k-means algorithm, we shift and rescale the data so that the set of points has mean 0 and std-deviation 1 in each variable.  Then we use ordinary Euclidean distance, that is the sum of the squares of the differences in each coordinate.  Before plotting, we reverse that scaling so that we can visualize the data in the original. This attempts to give the two variables equal weight in determining what &quot;nearby&quot; means for these data points.</li><li>This clustering happens for each combination plotted.</li></ul></section></article></body></html>
+vegaEmbed('#crimeRateVsPostedBondRateUnMerged',vlSpec);</script></figure><section><p>Notes:</p><ul><li><span>Posted Bond Rate is [(number of posted money bonds + number of posted PR bonds)/total number of bonds] where that data comes from </span><a href="https://github.com/Data4Democracy/incarceration-trends/blob/master/Colorado_ACLU/4-money-bail-analysis/complete-county-bond.csv">complete-county-bond.csv.</a></li><li><span>Crime Rate, as above, is crimes/estimated_population where those numbers come from the Colorado crime statistics </span><a href="https://coloradocrimestats.state.co.us/">web-site.</a></li></ul></section><figure id="reoffenseRateVsMoneyBondRate"><script type="text/javascript">var vlSpec=
+{
+    "height": 400,
+    "autosize": {
+        "type": "fit"
+    },
+    "mark": "point",
+    "data": {
+        "values": [
+            {
+                "year": 2014,
+                "money_bond_rate": null,
+                "reoffense_rate": null,
+                "EstPopulation": 0
+            },
+            {
+                "year": 2014,
+                "money_bond_rate": null,
+                "reoffense_rate": null,
+                "EstPopulation": 0
+            },
+            {
+                "year": 2014,
+                "money_bond_rate": 75.15085485667021,
+                "reoffense_rate": 16.85417248847539,
+                "EstPopulation": 442688
+            },
+            {
+                "year": 2014,
+                "money_bond_rate": 67.40939750100725,
+                "reoffense_rate": 21.58041564447536,
+                "EstPopulation": 449617
+            },
+            {
+                "year": 2014,
+                "money_bond_rate": 45.01630753505353,
+                "reoffense_rate": 13.526036818169413,
+                "EstPopulation": 347362
+            },
+            {
+                "year": 2014,
+                "money_bond_rate": 85.49701331556227,
+                "reoffense_rate": 12.387544157476226,
+                "EstPopulation": 886293
+            },
+            {
+                "year": 2014,
+                "money_bond_rate": 66.50510371130883,
+                "reoffense_rate": 15.70163320646467,
+                "EstPopulation": 328008
+            },
+            {
+                "year": 2014,
+                "money_bond_rate": 75.04968708478154,
+                "reoffense_rate": 13.26389068304707,
+                "EstPopulation": 849911
+            },
+            {
+                "year": 2014,
+                "money_bond_rate": 80.38168031502848,
+                "reoffense_rate": 10.469836414301195,
+                "EstPopulation": 554550
+            },
+            {
+                "year": 2014,
+                "money_bond_rate": 94.0278038245441,
+                "reoffense_rate": 14.903462020025687,
+                "EstPopulation": 1500659
+            },
+            {
+                "year": 2015,
+                "money_bond_rate": 65.53734121907938,
+                "reoffense_rate": 17.25394998992874,
+                "EstPopulation": 455137
+            },
+            {
+                "year": 2015,
+                "money_bond_rate": 58.93599156496292,
+                "reoffense_rate": 14.58196431252027,
+                "EstPopulation": 511917
+            },
+            {
+                "year": 2015,
+                "money_bond_rate": 78.91488191855919,
+                "reoffense_rate": 22.499410981280572,
+                "EstPopulation": 204648
+            },
+            {
+                "year": 2015,
+                "money_bond_rate": 55.2565027613168,
+                "reoffense_rate": 19.552380789254308,
+                "EstPopulation": 196991
+            },
+            {
+                "year": 2015,
+                "money_bond_rate": 47.79008888347742,
+                "reoffense_rate": 15.000866100814134,
+                "EstPopulation": 331509
+            },
+            {
+                "year": 2015,
+                "money_bond_rate": 90.57438511258148,
+                "reoffense_rate": 13.474643133019631,
+                "EstPopulation": 768674
+            },
+            {
+                "year": 2015,
+                "money_bond_rate": 83.54128200392115,
+                "reoffense_rate": 13.013006371102914,
+                "EstPopulation": 906155
+            },
+            {
+                "year": 2015,
+                "money_bond_rate": 75.10931620566132,
+                "reoffense_rate": 13.578688305899906,
+                "EstPopulation": 753375
+            },
+            {
+                "year": 2015,
+                "money_bond_rate": 72.12761097122535,
+                "reoffense_rate": 10.117043230271202,
+                "EstPopulation": 426433
+            },
+            {
+                "year": 2015,
+                "money_bond_rate": 94.09626671446615,
+                "reoffense_rate": 15.5642771063631,
+                "EstPopulation": 912880
+            },
+            {
+                "year": 2016,
+                "money_bond_rate": null,
+                "reoffense_rate": null,
+                "EstPopulation": 0
+            },
+            {
+                "year": 2016,
+                "money_bond_rate": null,
+                "reoffense_rate": null,
+                "EstPopulation": 0
+            },
+            {
+                "year": 2016,
+                "money_bond_rate": null,
+                "reoffense_rate": null,
+                "EstPopulation": 0
+            },
+            {
+                "year": 2016,
+                "money_bond_rate": null,
+                "reoffense_rate": null,
+                "EstPopulation": 0
+            },
+            {
+                "year": 2016,
+                "money_bond_rate": null,
+                "reoffense_rate": null,
+                "EstPopulation": 0
+            },
+            {
+                "year": 2016,
+                "money_bond_rate": null,
+                "reoffense_rate": null,
+                "EstPopulation": 0
+            },
+            {
+                "year": 2016,
+                "money_bond_rate": 71.09315642761354,
+                "reoffense_rate": 11.84630280480246,
+                "EstPopulation": 1337079
+            },
+            {
+                "year": 2016,
+                "money_bond_rate": 81.7981989289649,
+                "reoffense_rate": 17.137625070737037,
+                "EstPopulation": 1222879
+            },
+            {
+                "year": 2016,
+                "money_bond_rate": 56.77390066859028,
+                "reoffense_rate": 15.195289456560317,
+                "EstPopulation": 1575936
+            },
+            {
+                "year": 2016,
+                "money_bond_rate": 87.83457720924477,
+                "reoffense_rate": 12.136971431951723,
+                "EstPopulation": 1324261
+            }
+        ]
+    },
+    "width": 800,
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+    "title": "Reoffense rate vs. Money Bond rate",
+    "encoding": {
+        "color": {
+            "field": "year",
+            "type": "nominal"
+        },
+        "size": {
+            "field": "EstPopulation",
+            "type": "quantitative",
+            "legend": {
+                "title": "population"
+            }
+        },
+        "x": {
+            "field": "money_bond_rate",
+            "type": "quantitative",
+            "axis": {
+                "title": "Money Bond Rate (%, All Crime Types)"
+            }
+        },
+        "y": {
+            "field": "reoffense_rate",
+            "type": "quantitative",
+            "axis": {
+                "title": "Reoffense Rate (%)"
+            }
+        }
+    },
+    "background": "white",
+    "description": "Vega-lite"
+};
+vegaEmbed('#reoffenseRateVsMoneyBondRate',vlSpec);</script></figure><section><p>Notes:</p><ul><li><span>Reoffense Rate is (number of new offenses for all bonds/total number of posted bonds) where that data comes from </span><a href="https://github.com/Data4Democracy/incarceration-trends/blob/master/Colorado_ACLU/4-money-bail-analysis/complete-county-bond.csv">complete-county-bond.csv.</a></li></ul></section><section><h3>Some notes on weighted k-means</h3><ul><li>k-means works by choosing random starting locations for cluster centers, assigning each data-point to the nearest cluster center, moving the center of each cluster to the weighted average of the data-points assigned to the same cluster and then repeating until no data-points move to a new cluster.</li><li>How do you define distance between points?  Each axis has a different sort of data and it&#39;s not clear how to combine differences in each into a meanignful overall distance.  Here, before we hand the data off to the k-means algorithm, we shift and rescale the data so that the set of points has mean 0 and std-deviation 1 in each variable.  Then we use ordinary Euclidean distance, that is the sum of the squares of the differences in each coordinate.  Before plotting, we reverse that scaling so that we can visualize the data in the original. This attempts to give the two variables equal weight in determining what &quot;nearby&quot; means for these data points.</li><li>This clustering happens for each combination plotted.</li></ul></section></article></body></html>
