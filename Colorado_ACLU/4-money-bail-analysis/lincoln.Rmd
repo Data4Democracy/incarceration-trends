@@ -1,0 +1,73 @@
+---
+title: "Lincoln County Fact Sheet: Money Bonds"
+author: "Charlotte McClintock & Sam Powers"
+date: "Fall 2018"
+output: 
+  html_document:
+   toc: true
+   theme: yeti
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(knitr)
+
+load("moneybail.RData")
+```
+
+
+## Incarceration Trends in Lincoln County
+
+## Money Bonds vs. PR Bonds in Lincoln County
+
+
+Lincoln County has set money bond in over 95% of cases for both felonies and misdemeanor every year for the past three years. 
+
+
+```{r}
+ggplot(subset(county, county=="Lincoln"), aes(x=year, y=money_set_perc, fill=off_type)) + 
+  stat_summary(fun.y="sum", geom="bar", position = "dodge") + 
+  geom_text(aes(x = year, y=money_set_perc, label=round(100*money_set_perc, 1)), position=position_dodge(width = 1), vjust = -0.5) + scale_y_continuous(labels = scales::percent) + annotate("text", x=2014, y=1.02, label=".", color="white") + 
+  labs(title="Money Bonds as a % of All Bonds Set in Lincoln County by Year",
+       x="Year", y="Money Bonds as a % of All Bonds", fill="Offense Class") + scale_fill_manual(values=c("#003f5c","#bc5090")) 
+```
+
+Lincoln County used money bonds more frequently than any other county which processed at least 10 bonds in 2016, for both felony and misdemeanor offenses. 
+
+```{r tab-felony-money-2016}
+kable(head(arrange(select(filter(bondset, total_bond>10), 
+                          county, year, crime_type, money_perc, total_bond), 
+                   -year, crime_type, -money_perc), 10), 
+      col.names = c("County", "Year", "Offense Class", "Money Bonds as a % of All Bonds", 
+                    "Total Bonds"),
+      caption = "Counties With Highest Percentage Money Bond for Felony Offenses in 2016")
+```
+
+```{r tab-mis-money}
+kable(head(arrange(select(filter(bondset, total_bond>10), county, year, crime_type, money_perc, total_bond), -year, desc(crime_type), -money_perc), 10), col.names = c("County", "Year", "Offense Class", "Money Bonds as a % of All Bonds", "Total Bonds"), caption = "Counties With Highest Percentage Money Bond for Misdemeanor Offenses in 2016")
+```
+
+Although many counties decreased their use of money bonds after the passage of HB13.1236, Lincoln County actually modestly *increased* use of money bonds.
+
+```{r, fig.width=8, fig.height=12}
+year.plot <- mutate(year.change, 
+                      diff=round(diff,3),
+                      changesign=ifelse(diff<0, "Less Use of Money Bond", 
+                                        "More Use of Money Bond"))
+year.plot <- filter(year.plot, (abs(diff)>0 )&bond_type=="Money Bond")
+
+
+g <- ggplot(year.plot,
+            aes(x=reorder(county, -diff), y=diff, fill=changesign)) + 
+  coord_flip() +
+  stat_summary(fun.y="sum", geom="bar", position="dodge") + 
+  facet_wrap(~crime_type) + 
+  labs(x="County", y="2016 Money Bail Rate - 2014 Money Bail Rate",
+       title="Change in Money Bail as Percentage of All Bonds 2014-2016, by Offense Class",
+       fill="Change Direction") + theme(legend.position = "top") + 
+  geom_vline(xintercept = 15.5, linetype=3) + 
+  geom_vline(xintercept = 16.5, linetype=3) 
+g
+```
+

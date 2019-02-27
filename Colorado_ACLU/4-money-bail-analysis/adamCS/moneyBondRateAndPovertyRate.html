@@ -1,0 +1,1006 @@
+<html><head><title>Colorado Money Bonds and Poverty</title><link href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.4/tufte.min.css" rel="stylesheet"><meta content="width=device-width, initial-scale=1" name="viewport"><script src="https://cdn.jsdelivr.net/npm/vega@4.4.0"></script><script src="https://cdn.jsdelivr.net/npm/vega-lite@3.0.0-rc11"></script><script src="https://cdn.jsdelivr.net/npm/vega-embed@3.28.0"></script></head><body><article><section><h2>Colorado Money Bond Rate and Poverty (preliminary)</h2><p class="subtitle">Adam Conner-Sax</p><p>Colorado issues two types of bonds when releasing people from jail before trial. Sometimes people are released on a &quot;money bond&quot; and sometimes on a personal recognizance bond. We have county-level data of all bonds (?) issued in 2014, 2015 and 2016.  Plotting it all is very noisy (since there are 64 counties in CO) so we use a population-weighted k-means clustering technique to combine similar counties into clusters. In the plots below, each circle represents one cluster of counties and the circle&#39;s size represents the total population of all the counties included in the cluster.  We consider felonies and misdemeanors separately.</p></section><figure id="mBondsVspRateByYrFelonies"><script type="text/javascript">var vlSpec=
+{
+    "height": 300,
+    "autosize": {
+        "type": "fit"
+    },
+    "mark": "point",
+    "data": {
+        "values": [
+            {
+                "off_type": "Felony",
+                "year": 2014,
+                "total_pop": 466946,
+                "money_bond_rate": 77.96276841551449,
+                "povertyR": 13.373095175887576
+            },
+            {
+                "off_type": "Felony",
+                "year": 2014,
+                "total_pop": 1190995,
+                "money_bond_rate": 71.23897618661135,
+                "povertyR": 17.155208544116476
+            },
+            {
+                "off_type": "Felony",
+                "year": 2014,
+                "total_pop": 473830,
+                "money_bond_rate": 75.53085011039616,
+                "povertyR": 10.304646603212122
+            },
+            {
+                "off_type": "Felony",
+                "year": 2014,
+                "total_pop": 1026717,
+                "money_bond_rate": 85.92532520417765,
+                "povertyR": 6.575032263028663
+            },
+            {
+                "off_type": "Felony",
+                "year": 2014,
+                "total_pop": 2104068,
+                "money_bond_rate": 91.21694986380146,
+                "povertyR": 12.186442643488709
+            },
+            {
+                "off_type": "Misdemeanor",
+                "year": 2014,
+                "total_pop": 493083,
+                "money_bond_rate": 81.15801155716922,
+                "povertyR": 13.79840351421566
+            },
+            {
+                "off_type": "Misdemeanor",
+                "year": 2014,
+                "total_pop": 346634,
+                "money_bond_rate": 76.09020759536493,
+                "povertyR": 20.43687462857077
+            },
+            {
+                "off_type": "Misdemeanor",
+                "year": 2014,
+                "total_pop": 1436395,
+                "money_bond_rate": 55.348986225539676,
+                "povertyR": 11.92369626739163
+            },
+            {
+                "off_type": "Misdemeanor",
+                "year": 2014,
+                "total_pop": 1094345,
+                "money_bond_rate": 82.44354405395751,
+                "povertyR": 6.731035185430555
+            },
+            {
+                "off_type": "Misdemeanor",
+                "year": 2014,
+                "total_pop": 1244050,
+                "money_bond_rate": 91.94410939096566,
+                "povertyR": 12.270943852739038
+            },
+            {
+                "off_type": "Felony",
+                "year": 2015,
+                "total_pop": 1119365,
+                "money_bond_rate": 74.30141536509109,
+                "povertyR": 17.283848253250728
+            },
+            {
+                "off_type": "Felony",
+                "year": 2015,
+                "total_pop": 168586,
+                "money_bond_rate": 48.77703315739386,
+                "povertyR": 13.923567793292444
+            },
+            {
+                "off_type": "Felony",
+                "year": 2015,
+                "total_pop": 861823,
+                "money_bond_rate": 78.20993097113895,
+                "povertyR": 9.235178105016923
+            },
+            {
+                "off_type": "Felony",
+                "year": 2015,
+                "total_pop": 1029280,
+                "money_bond_rate": 83.77734896890277,
+                "povertyR": 6.268685391730142
+            },
+            {
+                "off_type": "Felony",
+                "year": 2015,
+                "total_pop": 2162546,
+                "money_bond_rate": 85.51916653933287,
+                "povertyR": 11.861843031315866
+            },
+            {
+                "off_type": "Misdemeanor",
+                "year": 2015,
+                "total_pop": 508430,
+                "money_bond_rate": 44.41702297784328,
+                "povertyR": 12.929426076352692
+            },
+            {
+                "off_type": "Misdemeanor",
+                "year": 2015,
+                "total_pop": 390550,
+                "money_bond_rate": 69.0083472774856,
+                "povertyR": 20.253808219178083
+            },
+            {
+                "off_type": "Misdemeanor",
+                "year": 2015,
+                "total_pop": 1008164,
+                "money_bond_rate": 53.656735550574695,
+                "povertyR": 9.846780186556948
+            },
+            {
+                "off_type": "Misdemeanor",
+                "year": 2015,
+                "total_pop": 1118533,
+                "money_bond_rate": 79.95348537322194,
+                "povertyR": 6.463313196839075
+            },
+            {
+                "off_type": "Misdemeanor",
+                "year": 2015,
+                "total_pop": 1653363,
+                "money_bond_rate": 87.89684836591654,
+                "povertyR": 11.923976525421217
+            },
+            {
+                "off_type": "Felony",
+                "year": 2016,
+                "total_pop": 919532,
+                "money_bond_rate": 59.684154045831406,
+                "povertyR": 14.210842689542073
+            },
+            {
+                "off_type": "Felony",
+                "year": 2016,
+                "total_pop": 396371,
+                "money_bond_rate": 73.75000218675888,
+                "povertyR": 20.387484452697095
+            },
+            {
+                "off_type": "Felony",
+                "year": 2016,
+                "total_pop": 1017370,
+                "money_bond_rate": 80.33191514030615,
+                "povertyR": 5.733034392600529
+            },
+            {
+                "off_type": "Felony",
+                "year": 2016,
+                "total_pop": 851689,
+                "money_bond_rate": 84.64198295453062,
+                "povertyR": 8.885816771145336
+            },
+            {
+                "off_type": "Felony",
+                "year": 2016,
+                "total_pop": 2255483,
+                "money_bond_rate": 82.5505298429522,
+                "povertyR": 11.423756641038748
+            },
+            {
+                "off_type": "Misdemeanor",
+                "year": 2016,
+                "total_pop": 841358,
+                "money_bond_rate": 46.197717277220725,
+                "povertyR": 12.149188454855127
+            },
+            {
+                "off_type": "Misdemeanor",
+                "year": 2016,
+                "total_pop": 418339,
+                "money_bond_rate": 63.24241972324685,
+                "povertyR": 20.17809193022883
+            },
+            {
+                "off_type": "Misdemeanor",
+                "year": 2016,
+                "total_pop": 1082367,
+                "money_bond_rate": 79.60869120613926,
+                "povertyR": 5.876744302071294
+            },
+            {
+                "off_type": "Misdemeanor",
+                "year": 2016,
+                "total_pop": 834750,
+                "money_bond_rate": 67.8740981446053,
+                "povertyR": 9.072452710392334
+            },
+            {
+                "off_type": "Misdemeanor",
+                "year": 2016,
+                "total_pop": 1582013,
+                "money_bond_rate": 83.51468463654665,
+                "povertyR": 11.488663493915663
+            }
+        ]
+    },
+    "width": 700,
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+    "title": "% of money bonds (out of money and personal recognizance bonds) vs poverty rate in CO",
+    "encoding": {
+        "color": {
+            "field": "year",
+            "type": "nominal"
+        },
+        "size": {
+            "field": "total_pop",
+            "type": "quantitative"
+        },
+        "row": {
+            "field": "off_type",
+            "header": {
+                "title": "Type of Offense"
+            },
+            "type": "nominal"
+        },
+        "x": {
+            "field": "povertyR",
+            "type": "quantitative",
+            "axis": {
+                "title": "Poverty Rate (%)"
+            }
+        },
+        "y": {
+            "field": "money_bond_rate",
+            "type": "quantitative",
+            "axis": {
+                "title": "% Money Bonds"
+            }
+        }
+    },
+    "background": "white",
+    "description": "Vega-Lite Attempt"
+};
+vegaEmbed('#mBondsVspRateByYrFelonies',vlSpec);</script></figure><section><h3>Broken down by &quot;urbanicity&quot;:</h3></section><figure id="mBondsVspRateByYrUrbFelonies"><script type="text/javascript">var vlSpec=
+{
+    "autosize": {
+        "resize": true,
+        "type": "fit"
+    },
+    "mark": "point",
+    "data": {
+        "values": [
+            {
+                "off_type": "Felony",
+                "urbanicity": "rural",
+                "year": 2014,
+                "total_pop": 231402,
+                "money_bond_rate": 83.94737263690742,
+                "povertyR": 9.255182755550946
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "rural",
+                "year": 2014,
+                "total_pop": 157322,
+                "money_bond_rate": 88.58136578737916,
+                "povertyR": 16.711139573613355
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "rural",
+                "year": 2014,
+                "total_pop": 142095,
+                "money_bond_rate": 59.26766637429506,
+                "povertyR": 14.543177451704844
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "rural",
+                "year": 2014,
+                "total_pop": 71923,
+                "money_bond_rate": 80.54107091191224,
+                "povertyR": 13.224666657397496
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "rural",
+                "year": 2014,
+                "total_pop": 82478,
+                "money_bond_rate": 69.84171178322596,
+                "povertyR": 25.70430175319479
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "small/mid",
+                "year": 2014,
+                "total_pop": 293155,
+                "money_bond_rate": 79.03514805858197,
+                "povertyR": 10.420345892104859
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "small/mid",
+                "year": 2014,
+                "total_pop": 308320,
+                "money_bond_rate": 63.515868903794235,
+                "povertyR": 17.28068240788791
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "small/mid",
+                "year": 2014,
+                "total_pop": 969804,
+                "money_bond_rate": 87.36718294423072,
+                "povertyR": 12.395416187188339
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "small/mid",
+                "year": 2014,
+                "total_pop": 309749,
+                "money_bond_rate": 87.8048780487805,
+                "povertyR": 13.3
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "suburban",
+                "year": 2014,
+                "total_pop": 582505,
+                "money_bond_rate": 85.67127432649662,
+                "povertyR": 8.32983390700509
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "suburban",
+                "year": 2014,
+                "total_pop": 23529,
+                "money_bond_rate": 82.8125,
+                "povertyR": 5.9
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "suburban",
+                "year": 2014,
+                "total_pop": 366009,
+                "money_bond_rate": 85.9002393086271,
+                "povertyR": 3.7492323959246905
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "suburban",
+                "year": 2014,
+                "total_pop": 606839,
+                "money_bond_rate": 87.84641068447412,
+                "povertyR": 11.2
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "suburban",
+                "year": 2014,
+                "total_pop": 469377,
+                "money_bond_rate": 93.64093463472345,
+                "povertyR": 12.9
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "urban",
+                "year": 2014,
+                "total_pop": 648049,
+                "money_bond_rate": 75.01965408805032,
+                "povertyR": 15.9
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "rural",
+                "year": 2014,
+                "total_pop": 289395,
+                "money_bond_rate": 76.83389758485171,
+                "povertyR": 9.55618790925897
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "rural",
+                "year": 2014,
+                "total_pop": 124584,
+                "money_bond_rate": 79.3845770807337,
+                "povertyR": 19.840709079817632
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "rural",
+                "year": 2014,
+                "total_pop": 68018,
+                "money_bond_rate": 58.99405097306945,
+                "povertyR": 16.433005969008203
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "rural",
+                "year": 2014,
+                "total_pop": 163923,
+                "money_bond_rate": 82.04657576345545,
+                "povertyR": 14.550153425693772
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "rural",
+                "year": 2014,
+                "total_pop": 39300,
+                "money_bond_rate": 74.84167584614237,
+                "povertyR": 29.725564885496183
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "small/mid",
+                "year": 2014,
+                "total_pop": 293155,
+                "money_bond_rate": 71.88652223564492,
+                "povertyR": 10.420345892104859
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "small/mid",
+                "year": 2014,
+                "total_pop": 308320,
+                "money_bond_rate": 64.75120563685557,
+                "povertyR": 17.28068240788791
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "small/mid",
+                "year": 2014,
+                "total_pop": 315859,
+                "money_bond_rate": 35.678391959798994,
+                "povertyR": 12.8
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "small/mid",
+                "year": 2014,
+                "total_pop": 963694,
+                "money_bond_rate": 86.42525409529961,
+                "povertyR": 12.553560258754334
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "suburban",
+                "year": 2014,
+                "total_pop": 582505,
+                "money_bond_rate": 85.31574369556236,
+                "povertyR": 8.32983390700509
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "suburban",
+                "year": 2014,
+                "total_pop": 23529,
+                "money_bond_rate": 74.58745874587459,
+                "povertyR": 5.9
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "suburban",
+                "year": 2014,
+                "total_pop": 366009,
+                "money_bond_rate": 80.61466485917532,
+                "povertyR": 3.7492323959246905
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "suburban",
+                "year": 2014,
+                "total_pop": 606839,
+                "money_bond_rate": 58.298041291688726,
+                "povertyR": 11.2
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "suburban",
+                "year": 2014,
+                "total_pop": 469377,
+                "money_bond_rate": 98.09244314013206,
+                "povertyR": 12.9
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "rural",
+                "year": 2015,
+                "total_pop": 145216,
+                "money_bond_rate": 81.16737899067607,
+                "povertyR": 11.30229657888938
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "rural",
+                "year": 2015,
+                "total_pop": 273565,
+                "money_bond_rate": 78.88955972546957,
+                "povertyR": 18.256805146857236
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "rural",
+                "year": 2015,
+                "total_pop": 127174,
+                "money_bond_rate": 59.36854055664704,
+                "povertyR": 10.45689055939107
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "rural",
+                "year": 2015,
+                "total_pop": 119089,
+                "money_bond_rate": 90.10725305272409,
+                "povertyR": 7.934954529805439
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "rural",
+                "year": 2015,
+                "total_pop": 21110,
+                "money_bond_rate": 61.482846923293444,
+                "povertyR": 35.199478919943154
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "small/mid",
+                "year": 2015,
+                "total_pop": 275584,
+                "money_bond_rate": 72.74805669867398,
+                "povertyR": 11.3
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "small/mid",
+                "year": 2015,
+                "total_pop": 308634,
+                "money_bond_rate": 56.28534208400544,
+                "povertyR": 17.08116312525516
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "small/mid",
+                "year": 2015,
+                "total_pop": 685223,
+                "money_bond_rate": 93.399227527583,
+                "povertyR": 10.924771643683881
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "small/mid",
+                "year": 2015,
+                "total_pop": 636178,
+                "money_bond_rate": 80.50033839766931,
+                "povertyR": 12.249122258235902
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "suburban",
+                "year": 2015,
+                "total_pop": 564255,
+                "money_bond_rate": 87.3099581687852,
+                "povertyR": 7.901016561660952
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "suburban",
+                "year": 2015,
+                "total_pop": 85704,
+                "money_bond_rate": 89.32023616416774,
+                "povertyR": 5.1800102678988145
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "suburban",
+                "year": 2015,
+                "total_pop": 314250,
+                "money_bond_rate": 74.41558441558442,
+                "povertyR": 3.4000000000000004
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "suburban",
+                "year": 2015,
+                "total_pop": 642859,
+                "money_bond_rate": 78.99458318773685,
+                "povertyR": 9.205668428068986
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "suburban",
+                "year": 2015,
+                "total_pop": 479488,
+                "money_bond_rate": 90.32522547144029,
+                "povertyR": 12.8
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "urban",
+                "year": 2015,
+                "total_pop": 663271,
+                "money_bond_rate": 75.3688141923436,
+                "povertyR": 15.7
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "rural",
+                "year": 2015,
+                "total_pop": 261307,
+                "money_bond_rate": 76.69440709650439,
+                "povertyR": 8.890708247387174
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "rural",
+                "year": 2015,
+                "total_pop": 245285,
+                "money_bond_rate": 76.66717566990964,
+                "povertyR": 18.58657113154086
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "rural",
+                "year": 2015,
+                "total_pop": 78799,
+                "money_bond_rate": 62.15706553517653,
+                "povertyR": 13.035770758512164
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "rural",
+                "year": 2015,
+                "total_pop": 80364,
+                "money_bond_rate": 80.41625601645629,
+                "povertyR": 12.594969140411129
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "rural",
+                "year": 2015,
+                "total_pop": 21110,
+                "money_bond_rate": 70.18023934720759,
+                "povertyR": 35.19947891994316
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "small/mid",
+                "year": 2015,
+                "total_pop": 746472,
+                "money_bond_rate": 49.43442205414386,
+                "povertyR": 12.2424435209894
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "small/mid",
+                "year": 2015,
+                "total_pop": 161419,
+                "money_bond_rate": 60.92695805221473,
+                "povertyR": 19.8
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "small/mid",
+                "year": 2015,
+                "total_pop": 23431,
+                "money_bond_rate": 80.64,
+                "povertyR": 8.8
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "small/mid",
+                "year": 2015,
+                "total_pop": 974297,
+                "money_bond_rate": 85.21054519650797,
+                "povertyR": 11.416973982266189
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "suburban",
+                "year": 2015,
+                "total_pop": 589729,
+                "money_bond_rate": 83.25920509776866,
+                "povertyR": 7.963306705283275
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "suburban",
+                "year": 2015,
+                "total_pop": 85704,
+                "money_bond_rate": 88.14398252432979,
+                "povertyR": 5.1800102678988145
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "suburban",
+                "year": 2015,
+                "total_pop": 314250,
+                "money_bond_rate": 70.36474164133737,
+                "povertyR": 3.4000000000000004
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "suburban",
+                "year": 2015,
+                "total_pop": 617385,
+                "money_bond_rate": 48.76860266034505,
+                "povertyR": 9.2
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "suburban",
+                "year": 2015,
+                "total_pop": 479488,
+                "money_bond_rate": 96.30074465529667,
+                "povertyR": 12.8
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "rural",
+                "year": 2016,
+                "total_pop": 324054,
+                "money_bond_rate": 76.12959786688234,
+                "povertyR": 9.209224388527838
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "rural",
+                "year": 2016,
+                "total_pop": 119971,
+                "money_bond_rate": 83.71071640242026,
+                "povertyR": 18.7128422702153
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "rural",
+                "year": 2016,
+                "total_pop": 120879,
+                "money_bond_rate": 64.09861956111993,
+                "povertyR": 15.836108008835282
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "rural",
+                "year": 2016,
+                "total_pop": 70336,
+                "money_bond_rate": 81.96005669472291,
+                "povertyR": 14.128358166515014
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "rural",
+                "year": 2016,
+                "total_pop": 55815,
+                "money_bond_rate": 70.78695423400859,
+                "povertyR": 28.387861685926723
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "small/mid",
+                "year": 2016,
+                "total_pop": 617222,
+                "money_bond_rate": 75.70187569110296,
+                "povertyR": 11.33822352411288
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "small/mid",
+                "year": 2016,
+                "total_pop": 311159,
+                "money_bond_rate": 60.07305642803793,
+                "povertyR": 17.56753203346199
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "small/mid",
+                "year": 2016,
+                "total_pop": 672453,
+                "money_bond_rate": 94.67736652472978,
+                "povertyR": 11.5
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "small/mid",
+                "year": 2016,
+                "total_pop": 341345,
+                "money_bond_rate": 76.48723242972014,
+                "povertyR": 10.710969546939314
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "suburban",
+                "year": 2016,
+                "total_pop": 570156,
+                "money_bond_rate": 86.28743484920145,
+                "povertyR": 7.005078434674019
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "suburban",
+                "year": 2016,
+                "total_pop": 89349,
+                "money_bond_rate": 77.24236079460078,
+                "povertyR": 5.492359175816182
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "suburban",
+                "year": 2016,
+                "total_pop": 321484,
+                "money_bond_rate": 72.8862973760933,
+                "povertyR": 3.4000000000000004
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "suburban",
+                "year": 2016,
+                "total_pop": 654782,
+                "money_bond_rate": 84.44306997699822,
+                "povertyR": 8.992414727344368
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "suburban",
+                "year": 2016,
+                "total_pop": 489822,
+                "money_bond_rate": 82.2636815920398,
+                "povertyR": 11.7
+            },
+            {
+                "off_type": "Felony",
+                "urbanicity": "urban",
+                "year": 2016,
+                "total_pop": 681618,
+                "money_bond_rate": 61.08337116053866,
+                "povertyR": 14
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "rural",
+                "year": 2016,
+                "total_pop": 217696,
+                "money_bond_rate": 80.05176343122933,
+                "povertyR": 8.228334007055711
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "rural",
+                "year": 2016,
+                "total_pop": 95849,
+                "money_bond_rate": 47.16487420718784,
+                "povertyR": 16.51562248954084
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "rural",
+                "year": 2016,
+                "total_pop": 159249,
+                "money_bond_rate": 85.10579851617646,
+                "povertyR": 17.394374218990386
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "rural",
+                "year": 2016,
+                "total_pop": 154385,
+                "money_bond_rate": 67.50872040145744,
+                "povertyR": 11.723721864170741
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "rural",
+                "year": 2016,
+                "total_pop": 63876,
+                "money_bond_rate": 61.12177104176174,
+                "povertyR": 27.670067004821842
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "small/mid",
+                "year": 2016,
+                "total_pop": 617222,
+                "money_bond_rate": 43.31783352952141,
+                "povertyR": 11.33822352411288
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "small/mid",
+                "year": 2016,
+                "total_pop": 311159,
+                "money_bond_rate": 53.97103067233458,
+                "povertyR": 17.56753203346199
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "small/mid",
+                "year": 2016,
+                "total_pop": 672453,
+                "money_bond_rate": 88.24302134646962,
+                "povertyR": 11.5
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "small/mid",
+                "year": 2016,
+                "total_pop": 341345,
+                "money_bond_rate": 73.04135494335729,
+                "povertyR": 10.710969546939314
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "suburban",
+                "year": 2016,
+                "total_pop": 579389,
+                "money_bond_rate": 82.68201013657259,
+                "povertyR": 7.022526834303033
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "suburban",
+                "year": 2016,
+                "total_pop": 89349,
+                "money_bond_rate": 72.76403483959005,
+                "povertyR": 5.492359175816182
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "suburban",
+                "year": 2016,
+                "total_pop": 321484,
+                "money_bond_rate": 74.162048033782,
+                "povertyR": 3.4000000000000004
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "suburban",
+                "year": 2016,
+                "total_pop": 645549,
+                "money_bond_rate": 66.33991267751244,
+                "povertyR": 9.005178537957615
+            },
+            {
+                "off_type": "Misdemeanor",
+                "urbanicity": "suburban",
+                "year": 2016,
+                "total_pop": 489822,
+                "money_bond_rate": 84.8625,
+                "povertyR": 11.7
+            }
+        ]
+    },
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+    "title": "% of money bonds (out of money and personal recognizance bonds) vs poverty rate in CO",
+    "encoding": {
+        "color": {
+            "field": "year",
+            "type": "nominal"
+        },
+        "size": {
+            "field": "total_pop",
+            "type": "quantitative"
+        },
+        "row": {
+            "field": "off_type",
+            "header": {
+                "title": "Type of Offense"
+            },
+            "type": "nominal"
+        },
+        "x": {
+            "field": "povertyR",
+            "type": "quantitative",
+            "axis": {
+                "title": "Poverty Rate (%)"
+            }
+        },
+        "column": {
+            "field": "urbanicity",
+            "type": "nominal"
+        },
+        "y": {
+            "field": "money_bond_rate",
+            "type": "quantitative",
+            "axis": {
+                "title": "% Money Bonds"
+            }
+        }
+    },
+    "background": "white",
+    "description": "Vega-Lite Attempt"
+};
+vegaEmbed('#mBondsVspRateByYrUrbFelonies',vlSpec);</script></figure><section><p>Notes:</p><ul><li>Denver, the only urban county in CO, didn&#39;t report misdemeanors in this data, so the last plot is blank.</li><li><span>Money Bond Rate is (number of money bonds/total number of bonds). That data comes from </span><a href="https://github.com/Data4Democracy/incarceration-trends/blob/master/Colorado_ACLU/4-money-bail-analysis/complete-county-bond.csv">complete-county-bond.csv.</a></li><li><span>Poverty Rate comes from the census and we have that data in </span><a href="https://github.com/Data4Democracy/incarceration-trends/blob/master/Colorado_ACLU/4-money-bail-analysis/complete-county-bond-SAIPE.csv">complete-county-bond-SAIPE.csv</a><span>. That data originates from the </span><a href="https://www.census.gov/programs-surveys/saipe.html">SAIPE website</a><span> at the census bureau.</span></li></ul></section><section><h3>Some notes on weighted k-means</h3><ul><li>k-means works by choosing random starting locations for cluster centers, assigning each data-point to the nearest cluster center, moving the center of each cluster to the weighted average of the data-points assigned to the same cluster and then repeating until no data-points move to a new cluster.</li><li>How do you define distance between points?  Each axis has a different sort of data and it&#39;s not clear how to combine differences in each into a meanignful overall distance.  Here, before we hand the data off to the k-means algorithm, we shift and rescale the data so that the set of points has mean 0 and std-deviation 1 in each variable.  Then we use ordinary Euclidean distance, that is the sum of the squares of the differences in each coordinate.  Before plotting, we reverse that scaling so that we can visualize the data in the original. This attempts to give the two variables equal weight in determining what &quot;nearby&quot; means for these data points.</li><li>This clustering happens for each combination plotted.</li></ul></section></article></body></html>

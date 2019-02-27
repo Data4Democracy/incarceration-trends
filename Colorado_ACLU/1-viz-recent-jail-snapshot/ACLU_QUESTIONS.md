@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+# A place to write questions that come up about the pretiral snapshot data to be addressed by the CO ACLU contact(s) 
+=======
 # A place to write questions that come up about the pretrial snapshot data to be addressed by the CO ACLU contact(s) 
 
 General note: (derived from the notes provided in the data) I get the sense that these data do not have high reliability; the notes indicate all sorts of decision that must have been made to come up with these counts. Not sure what can be done about this or if it's even worth it to bring it up but it seems like whoever entered the data had to make a lot of decision about what counts under what columns
@@ -17,6 +20,10 @@ General note: (derived from the notes provided in the data) I get the sense that
 - What is the AK ethnicity?
 - Where the counties had no jail, sometimes this was left blank and sometimes it was `n/a`, we should probably treat all of these as `NULL`, right?
 - why does dolores county have data despite not having any data (and no jail) in the pretial overivew sheet?
+
+## hold breakdowns
+
+- non-integer numeric data
 
 ## Notes about the data cleaning
 
@@ -53,4 +60,17 @@ Missing/Confounded data treatment
 - `n/a` changed to `NA` for Huefano County (because there should be data
 - blanks changed to `NA`, but some changed to `NULL` depending on data presence in the pretrial snapshot sheet
 
+
 ### hold breakdowns
+
+Hover notes added to notes column, source column specified if not from the `county_or_jail` column
+
+Missing data treatment
+- blanks to `NA`
+- `N/A` to `NA`
+- `n/a` to `NA`
+- `replied "unknown"` to `NA`
+- `possibly some of the 19 are parole` to `NA`
+
+
+>>>>>>> 9f494ba6608d346afdcbbe676d24bf472df1ccdd

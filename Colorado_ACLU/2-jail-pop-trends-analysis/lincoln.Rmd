@@ -1,0 +1,201 @@
+---
+title: "Lincoln County Fact Sheet: Money Bonds"
+author: "Charlotte McClintock & Sam Powers"
+date: "Fall 2018"
+output: 
+  html_document:
+   toc: true
+   theme: yeti
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+
+library(tidyverse)
+library(knitr)
+
+load("~/Documents/GitHub/incarceration-trends/Colorado_ACLU/4-money-bail-analysis/moneybail.Rdata")
+co_vera_data <- read_csv("Colorado-Incarceration-Data.csv")
+```
+
+
+## Incarceration Trends in Lincoln County
+
+## Money Bonds vs. PR Bonds in Lincoln County
+
+
+Lincoln County has set money bond in over 95% of cases for both felonies and misdemeanor every year for the past three years. 
+
+
+```{r}
+ggplot(subset(county, county=="Lincoln"), aes(x=year, y=money_set_perc, fill=off_type)) + 
+  stat_summary(fun.y="sum", geom="bar", position = "dodge") + 
+  geom_text(aes(x = year, y=money_set_perc, label=round(100*money_set_perc, 1)), position=position_dodge(width = 1), vjust = -0.5) + scale_y_continuous(labels = scales::percent) + annotate("text", x=2014, y=1.02, label=".", color="white") + 
+  labs(title="Money Bonds as a % of All Bonds Set in Lincoln County by Year",
+       x="Year", y="Money Bonds as a % of All Bonds", fill="Offense Class") + scale_fill_manual(values=c("#003f5c","#bc5090")) 
+```
+
+Lincoln County used money bonds more frequently than any other county which processed at least 10 bonds in 2016, for both felony and misdemeanor offenses. 
+
+```{r tab-felony-money-2016}
+kable(head(arrange(select(filter(bondset, total_bond>10), 
+                          county, year, crime_type, money_perc, total_bond), 
+                   -year, crime_type, -money_perc), 10), 
+      col.names = c("County", "Year", "Offense Class", "Money Bonds as a % of All Bonds", 
+                    "Total Bonds"),
+      caption = "Counties With Highest Percentage Money Bond for Felony Offenses in 2016")
+```
+
+```{r tab-mis-money}
+kable(head(arrange(select(filter(bondset, total_bond>10), county, year, crime_type, money_perc, total_bond), -year, desc(crime_type), -money_perc), 10), col.names = c("County", "Year", "Offense Class", "Money Bonds as a % of All Bonds", "Total Bonds"), caption = "Counties With Highest Percentage Money Bond for Misdemeanor Offenses in 2016")
+```
+
+Although many counties decreased their use of money bonds after the passage of HB13.1236, Lincoln County actually modestly *increased* use of money bonds.
+
+```{r, fig.width=8, fig.height=12}
+year.plot <- mutate(year.change, 
+                      diff=round(diff,3),
+                      changesign=ifelse(diff<0, "Less Use of Money Bond", 
+                                        "More Use of Money Bond"))
+year.plot <- filter(year.plot, (abs(diff)>0 )&bond_type=="Money Bond")
+
+
+g <- ggplot(year.plot,
+            aes(x=reorder(county, -diff), y=diff, fill=changesign)) + 
+  coord_flip() +
+  stat_summary(fun.y="sum", geom="bar", position="dodge") + 
+  facet_wrap(~crime_type) + 
+  labs(x="County", y="2016 Money Bail Rate - 2014 Money Bail Rate",
+       title="Change in Money Bail as Percentage of All Bonds 2014-2016, by Offense Class",
+       fill="Change Direction") + theme(legend.position = "top") + 
+  geom_vline(xintercept = 15.5, linetype=3) + 
+  geom_vline(xintercept = 16.5, linetype=3) 
+g
+```
+
+## Incarceration Trends in Lincoln County ##
+The Jail Population of Lincoln County, as a percentage of the county population, has steadily increased, peaking in 2013. 
+
+```{r, fig.width = 14}
+county.incarc.rate <- co_vera_data %>% select(year, county_name, total_pop, total_pop_15to64, 
+                                             urbanicity, region, total_jail_pop) %>%
+  mutate(incarc_perc = total_jail_pop/total_pop_15to64*100)
+
+incarc.rate.vis <- ggplot(filter(county.incarc.rate, county_name == "Lincoln County"), aes(x= year, y = incarc_perc)) +
+  geom_line() + 
+  geom_point()+
+  ggtitle('Lincoln County Incarceration Rate Over Time') +
+  theme(
+    plot.title = element_text(size=15, face="bold", family = "serif", hjust = 0.5 ),
+    axis.title.x = element_text(vjust=-0.5, size = 15, family ="serif"),
+    axis.title.y = element_text(vjust=0.75,family ="serif", size = 15),
+    axis.text.x=element_text(angle=50, size=10, vjust=0.5, family ="serif"),
+    axis.text.y=element_text(angle= 0, size=10, vjust=.05,family ="serif"),
+    panel.background = element_rect(fill = 'white'),
+    panel.grid.major = element_line(colour = "grey", size = .3, linetype = "dashed" ),
+    panel.grid.minor = element_line(colour = "white", size = .5)
+  ) + 
+  ylim(0, .9) +
+  scale_x_continuous(breaks = seq(1970, 2015, 1), limits = c(1970,2015)) +
+  labs(x="Year", y="Incarceration Rate (% of State County)")
+incarc.rate.vis
+```
+
+
+
+From 2008 to 2015, incarceration increased by almost 25%. In relationship to other counties, Lincoln county ranks among the greatest increases in incarceration across the state. 
+
+```{r, fig.height=10, fig.width = 14 }
+
+
+
+# Difference in incarceration rates 2015 - 2008
+incarc.diff.15.08 <- county.incarc.rate %>% 
+  filter(year == 2015 | year == 2008) %>% 
+  select(year, county_name, incarc_perc) %>%
+  mutate(diff2015.08 = incarc_perc -lag(incarc_perc, default = first(incarc_perc))) %>%
+  filter(year == 2015) %>%
+  select(county_name, diff2015.08) %>%
+  mutate(changesign = ifelse(diff2015.08<0, "Less", "More"))
+
+
+incarc.diff.15.08.plot  <- ggplot(filter(incarc.diff.15.08, diff2015.08 < 1),
+                         aes(x=reorder(county_name, -diff2015.08), y=diff2015.08, fill=changesign)) + 
+                        stat_summary(fun.y="sum", geom="bar", position="dodge") + coord_flip() +
+                         labs(x="County", y="2015 Incarceration Perc - 2008 Incarceration Perc",
+                            title="Change in Incarceration Percentage of County Population (2015 - 2008)"
+                                                 ) +   
+  theme(
+                      plot.title = element_text(size=15, face="bold", family = "serif", hjust =0.5 ),
+                      axis.title.x = element_text(vjust=-0.5, size = 15, family ="serif"),
+                      axis.title.y = element_text(vjust=0.75,family ="serif", size = 15),
+                      axis.text.x=element_text(angle=0, size=10, vjust=0.5, family ="serif"),
+                      axis.text.y=element_text(angle= 0, size=10, vjust=.05,family ="serif"),
+                      panel.background = element_rect(fill = 'white'),
+                      panel.grid.major = element_line(colour = "grey", size = .3, linetype = "dashed" ),
+                      panel.grid.minor = element_line(colour = "white", size = .5)
+                                                 ) + 
+  guides(fill=FALSE) + 
+  geom_vline(xintercept = 2.5, linetype=2, color = "red") + 
+  geom_vline(xintercept = 3.5, linetype=2, color = "red") 
+
+incarc.diff.15.08.plot
+
+```
+
+
+Due to the nature of incarceration as a proportion (Jail Population/County Population), it is affected both by changes in the Jail population and in the County population. This graph breaks all counties into components contributing to incarceration change. 
+
+Lincoln county falls into the second quadrant, which means that while the county population has decreased slightly since 2008, the jail population has increased by about 35%. 
+
+```{r, fig.height = 14, fig.width = 14}
+
+
+perc.change.data <- co_vera_data %>%
+  select(year, county_name, total_pop_15to64, total_jail_pop) %>%
+  filter(year == 2015 | year == 2008) %>%
+  mutate(
+    dif_15to64_pop = (total_pop_15to64 -lag(total_pop_15to64, default = first(total_pop_15to64)))*100/lag(total_pop_15to64, default = first(total_pop_15to64)),
+    dif_jail_pop = (total_jail_pop - lag(total_jail_pop, default = first(total_jail_pop)))*100/lag(total_jail_pop, default = first(total_jail_pop))
+    ) %>%
+  filter(year == 2015) %>%
+  select(county_name, dif_15to64_pop, dif_jail_pop) %>%
+  mutate(
+    dif_in_dif = dif_jail_pop/dif_15to64_pop,
+    changesign = ifelse(dif_in_dif < 0, "Less", "More")
+    )
+
+
+Rel.Change.plot  <- ggplot(filter(perc.change.data, abs(dif_in_dif) < 150 ) , 
+                           aes(x= dif_15to64_pop, y=dif_jail_pop, color = as.factor(I(dif_15to64_pop - dif_jail_pop > 0)))) + 
+  geom_point()+
+  ggtitle('% Change in Incarceration v % Change in Population (2015 - 2008)') +
+  theme(
+    plot.title = element_text(size=15, face="bold", family = "serif", hjust = 0.5 ),
+    axis.title.x = element_text(vjust=-0.5, size = 15, family ="serif"),
+    axis.title.y = element_text(vjust=0.75,family ="serif", size = 15),
+    axis.text.x=element_text(angle=0, size=10, vjust=0.5, family ="serif"),
+    axis.text.y=element_text(angle= 0, size=10, vjust=.05,family ="serif"),
+    panel.background = element_rect(fill = 'white'),
+    panel.grid.major = element_line(colour = "grey", size = .5, linetype = "dashed" ),
+    panel.grid.minor = element_line(colour = "grey", size = .3, linetype = "dashed"),
+    legend.text = element_text(family = "serif"), 
+    legend.title = element_text(family = "serif", face = "bold"),
+    legend.position = c(0.2, 0.65)
+  ) + 
+  ylim(-75, 75) +
+  scale_x_continuous(breaks = seq(-20, 20, 5), limits = c(-20,20)) +
+  labs(x="% Change in Population", y="% Change in Jail Population", color = "Net Incarceration") +
+  geom_text(aes(label=county_name), hjust=-.1, vjust=.1, size = 2) +
+  geom_hline(aes(yintercept = 0)) +
+  geom_vline(aes(xintercept = 0)) +
+  scale_color_hue(labels = c("Increase", "Decrease")) + 
+ 
+ annotate("text", x = c(10,10, -10, -10), y = c(50,-50, -50, 50), label = c("Jail Pop Increase, County Pop Increase","Jail Pop Decrease, County Pop Increase", "Jail Pop Decrease, County Pop Decrease", "Jail Pop Increase, County Pop Decrease"
+                                                                            ), family = "serif", fontface = 2) +
+  geom_point(data = filter(perc.change.data, county_name == "Lincoln County"), aes(x = dif_15to64_pop, y = dif_jail_pop),  position = "identity", shape = 1, fontface = 4, color = "black", size = 8)
+
+
+Rel.Change.plot
+```
